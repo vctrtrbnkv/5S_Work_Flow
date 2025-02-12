@@ -1,0 +1,587 @@
+{
+	"textures": [
+		{
+			"image": "spritesheet-0.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 2023,
+				"h": 1696
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "scissor.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 407,
+						"h": 196
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 407,
+						"h": 196
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 407,
+						"h": 196
+					}
+				},
+				{
+					"filename": "glass.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 273,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 273,
+						"h": 200
+					},
+					"frame": {
+						"x": 407,
+						"y": 0,
+						"w": 273,
+						"h": 200
+					}
+				},
+				{
+					"filename": "brokenRuler.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 338,
+						"h": 215
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 338,
+						"h": 215
+					},
+					"frame": {
+						"x": 680,
+						"y": 0,
+						"w": 338,
+						"h": 215
+					}
+				},
+				{
+					"filename": "bill.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 221,
+						"h": 221
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 221,
+						"h": 221
+					},
+					"frame": {
+						"x": 1018,
+						"y": 0,
+						"w": 221,
+						"h": 221
+					}
+				},
+				{
+					"filename": "screwNuts.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 250,
+						"h": 250
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 250,
+						"h": 250
+					},
+					"frame": {
+						"x": 1239,
+						"y": 0,
+						"w": 250,
+						"h": 250
+					}
+				},
+				{
+					"filename": "penStand.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 253,
+						"h": 253
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 253,
+						"h": 253
+					},
+					"frame": {
+						"x": 1489,
+						"y": 0,
+						"w": 253,
+						"h": 253
+					}
+				},
+				{
+					"filename": "cable.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 1742,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "notebook.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 0,
+						"y": 256,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "paperBag.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 256,
+						"y": 256,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "vitamins.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 256,
+						"h": 256
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 256,
+						"h": 256
+					},
+					"frame": {
+						"x": 512,
+						"y": 256,
+						"w": 256,
+						"h": 256
+					}
+				},
+				{
+					"filename": "computerMouse.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 348,
+						"h": 261
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 348,
+						"h": 261
+					},
+					"frame": {
+						"x": 768,
+						"y": 256,
+						"w": 348,
+						"h": 261
+					}
+				},
+				{
+					"filename": "screwdriver.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 399,
+						"h": 266
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 399,
+						"h": 266
+					},
+					"frame": {
+						"x": 1116,
+						"y": 256,
+						"w": 399,
+						"h": 266
+					}
+				},
+				{
+					"filename": "rubikCube.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 273,
+						"h": 276
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 273,
+						"h": 276
+					},
+					"frame": {
+						"x": 1515,
+						"y": 256,
+						"w": 273,
+						"h": 276
+					}
+				},
+				{
+					"filename": "korkunovCandies.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 282,
+						"h": 282
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 282,
+						"h": 282
+					},
+					"frame": {
+						"x": 0,
+						"y": 532,
+						"w": 282,
+						"h": 282
+					}
+				},
+				{
+					"filename": "pen.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 720,
+						"h": 294
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 720,
+						"h": 294
+					},
+					"frame": {
+						"x": 282,
+						"y": 532,
+						"w": 720,
+						"h": 294
+					}
+				},
+				{
+					"filename": "stackOfPaper.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 372,
+						"h": 299
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 372,
+						"h": 299
+					},
+					"frame": {
+						"x": 1002,
+						"y": 532,
+						"w": 372,
+						"h": 299
+					}
+				},
+				{
+					"filename": "stackOfBooks.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 275,
+						"h": 300
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 275,
+						"h": 300
+					},
+					"frame": {
+						"x": 1374,
+						"y": 532,
+						"w": 275,
+						"h": 300
+					}
+				},
+				{
+					"filename": "calculator.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 348,
+						"h": 348
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 348,
+						"h": 348
+					},
+					"frame": {
+						"x": 1649,
+						"y": 532,
+						"w": 348,
+						"h": 348
+					}
+				},
+				{
+					"filename": "smartphone.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 357,
+						"h": 357
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 357,
+						"h": 357
+					},
+					"frame": {
+						"x": 0,
+						"y": 880,
+						"w": 357,
+						"h": 357
+					}
+				},
+				{
+					"filename": "mug.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 360,
+						"h": 360
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 360,
+						"h": 360
+					},
+					"frame": {
+						"x": 357,
+						"y": 880,
+						"w": 360,
+						"h": 360
+					}
+				},
+				{
+					"filename": "crumpledPaper.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 467,
+						"h": 361
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 467,
+						"h": 361
+					},
+					"frame": {
+						"x": 717,
+						"y": 880,
+						"w": 467,
+						"h": 361
+					}
+				},
+				{
+					"filename": "appleCore.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 360,
+						"h": 371
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 360,
+						"h": 371
+					},
+					"frame": {
+						"x": 1184,
+						"y": 880,
+						"w": 360,
+						"h": 371
+					}
+				},
+				{
+					"filename": "paperСup.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 360,
+						"h": 372
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 360,
+						"h": 372
+					},
+					"frame": {
+						"x": 1544,
+						"y": 880,
+						"w": 360,
+						"h": 372
+					}
+				},
+				{
+					"filename": "trashCan.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 400,
+						"h": 400
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 400,
+						"h": 400
+					},
+					"frame": {
+						"x": 0,
+						"y": 1252,
+						"w": 400,
+						"h": 400
+					}
+				},
+				{
+					"filename": "laptop.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 538,
+						"h": 413
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 538,
+						"h": 413
+					},
+					"frame": {
+						"x": 400,
+						"y": 1252,
+						"w": 538,
+						"h": 413
+					}
+				},
+				{
+					"filename": "book.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 420,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 420,
+						"h": 420
+					},
+					"frame": {
+						"x": 938,
+						"y": 1252,
+						"w": 420,
+						"h": 420
+					}
+				},
+				{
+					"filename": "medicalMask.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 665,
+						"h": 444
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 665,
+						"h": 444
+					},
+					"frame": {
+						"x": 1358,
+						"y": 1252,
+						"w": 665,
+						"h": 444
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:bec99eabafac27d17f670fb34a380f6c:f67b3cd533fe43f59a2a2a393fc1374d:8c6dd33834234b12e12b365e160caba2$"
+	}
+}

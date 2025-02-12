@@ -45,32 +45,6 @@ function create() {
     chair.setInteractive(); // Делаем изображение интерактивным
 
     addDragAndDrop(chair, this.input);
-
-    // chair.on('pointerdown', function(pointer) {
-    //     this.setAlpha(0.5); // Уменьшаем непрозрачность
-    //     this.setData('dragging', true); // Устанавливаем флаг перетаскивания
-    // });
-
-    // // Добавляем обработчик события при перемещении указателя
-    // this.input.on('pointermove', function(pointer) {        
-    //     if (chair.getData('dragging')) {
-    //         // Перемещение спрайта к текущей позиции указателя
-    //         chair.x = pointer.x;
-    //         chair.y = pointer.y;
-    //     }
-    // });
-
-    // // Добавляем обработчик события завершения перетаскивания
-    // chair.on('pointerup', function(pointer) {
-    //     this.setAlpha(1); // Восстанавливаем непрозрачность
-    //     this.setData('dragging', false); // Сбрасываем флаг перетаскивания
-    // });
-
-    // // Добавляем событие, если указатель выходит за пределы спрайта
-    // chair.on('pointerout', function(pointer) {
-    //     this.setAlpha(1); // Восстанавливаем непрозрачность, если указатель вышел
-    //     this.setData('dragging', false); // Сбрасываем флаг перетаскивания
-    // });
 }
 
 function update() {

@@ -1,7 +1,7 @@
 import { Scene } from 'phaser';
 
-import Room from '../assets/images/Room1.png'
-import Chair from '../assets/images/Chair.png'
+import Room from '../sprites/Room1.png';
+import Chair from '../sprites/Chair.png';
 
 
 export default class PreloadScene extends Scene {
@@ -12,6 +12,8 @@ export default class PreloadScene extends Scene {
     preload() {
         this.load.image('room', Room);
         this.load.image('chair', Chair);
+        this.load.multiatlas('spritesheet', 'sprites/spritesheet.json', 'sprites');
+        
     }
     
     create() {
