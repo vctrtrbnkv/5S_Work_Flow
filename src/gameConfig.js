@@ -1,5 +1,5 @@
 export default {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 800,
+    height: 800,
     backgroundColor: '#D9D9D9',
 }

@@ -7,54 +7,63 @@ export default class CustomScene extends Scene {
         this.sprites = {};
     }
 
-    createSprite(spriteName, imageName, posX, posY, size) {
-        const sprite = this.add.sprite(0, 0, imageName).setOrigin(0.5, 0.5); // Устанавливаем точку отсчета в центр изображения
+    createSprite(obj) {
+        const { key, imageName, x, y, scale, options } = obj;
 
-        // Вычисляем центр и устанавливаем позицию изображения
-        sprite.setPosition(posX, posY);
+        const sprite = this.physics.add.sprite(0, 0, 'figures', imageName).setOrigin(0.5, 0.5); // Устанавливаем точку отсчета в центр изображения
 
-        sprite.setScale(size); // Устанавливаем масштаб изображения
-        sprite.setInteractive(); // Делаем изображение интерактивным
+        sprite.setPosition(x, y);
+
+        sprite.setScale(scale);
+        sprite.setSize(sprite.width - 30, sprite.height - 30);
+
+        if (options) {
+            Object.keys(options).forEach((key) => {
+                sprite[key] = options[key];
+            })
+        }
 
         this.sprites = {
             ...this.sprites,
-            [spriteName]: sprite
+            [key]: sprite,
         };
     }
 
     addDragAndDrop(spriteName) {
         const sprite = this.sprites[spriteName];
 
-        sprite.on('pointerdown', function() {
-            this.setAlpha(0.5); // Уменьшаем непрозрачность
-            this.setData('dragging', true); // Устанавливаем флаг перетаскивания
+        sprite.on('pointerdown', function () {
+            this.setAlpha(0.5);
+            this.setData('dragging', true);
+            this.setDepth(1);
         });
-    
-        // Добавляем обработчик события при перемещении указателя
-        this.input.on('pointermove', function(pointer) {        
+
+        this.input.on('pointermove', function (pointer) {
             if (sprite.getData('dragging')) {
-                // Перемещение спрайта к текущей позиции указателя
                 sprite.x = pointer.x;
                 sprite.y = pointer.y;
             }
         });
-    
-        // Добавляем обработчик события завершения перетаскивания
-        sprite.on('pointerup', function() {
-            this.setAlpha(1); // Восстанавливаем непрозрачность
-            this.setData('dragging', false); // Сбрасываем флаг перетаскивания
-        });
-    
-        // Добавляем событие, если указатель выходит за пределы спрайта
-        sprite.on('pointerout', function() {
-            this.setAlpha(1); // Восстанавливаем непрозрачность, если указатель вышел
-            this.setData('dragging', false); // Сбрасываем флаг перетаскивания
+
+        sprite.on('pointerup', function () {;
+            this.setAlpha(1);
+            this.setData('dragging', false);
+            console.log(sprite.x, sprite.y);
         });
     }
 
-    createInteractiveSprite(spriteName, imageName, posX, posY, size) {
-        this.createSprite(spriteName, imageName, posX, posY, size);
+    createInteractiveSprite(obj) {
+        this.createSprite(obj);
 
-        this.addDragAndDrop(spriteName);
+        Object.keys(this.sprites).forEach((spriteKey) => {
+            const sprite = this.sprites[spriteKey];
+
+            if (sprite.isInteractive) {
+                sprite.setInteractive();
+                this.addDragAndDrop(obj.key);
+            }
+        })
+
+        
     }
 }
