@@ -12,15 +12,21 @@ export default class GameScene extends CustomScene {
     }
 
     create() {
-        const room1 = this.add.image(0, 0, 'room').setOrigin(0.5, 0.5); 
-        room1.setPosition(this.cameras.main.centerX, this.cameras.main.centerY);
+        const sidebar = document.getElementById('sidebar');
+        sidebar.style.display = 'block';
+
+        const modal = document.getElementById('modal');
+        modal.style.display = 'block';
+
+        const room1 = this.add.image(0, 0, 'room').setOrigin(0, 0);
+        room1.setPosition(10, 10);
         room1.setScale(0.5);
 
         const checkRemainingObjects = () => {
             const remainingKeys = Object.keys(this.sprites);
-        
+
             if (remainingKeys.length == FINAL_OBJECTS.length) {
-                this.scene.start('GameOverScene'); 
+                this.scene.start('level2');
             }
         }
 
@@ -33,7 +39,7 @@ export default class GameScene extends CustomScene {
                 this.physics.add.collider(this.sprites.boxRemove, sprite, () => {
                     sprite.destroy();
                     delete this.sprites[spriteKey];
-                
+
                     checkRemainingObjects();
                 })
             }
@@ -42,7 +48,7 @@ export default class GameScene extends CustomScene {
                 this.physics.add.collider(this.sprites.boxNeeded, sprite, () => {
                     sprite.destroy();
                     delete this.sprites[spriteKey];
-                
+
                     checkRemainingObjects();
                 })
             }
@@ -51,7 +57,7 @@ export default class GameScene extends CustomScene {
                 this.physics.add.collider(this.sprites.boxRequired, sprite, () => {
                     sprite.destroy();
                     delete this.sprites[spriteKey];
-                
+
                     checkRemainingObjects();
                 })
             }

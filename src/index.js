@@ -1,6 +1,8 @@
 import { Game, AUTO } from 'phaser';
 import PreloadScene from './scenes/PreloadScene.js';
+import MenuScene from './scenes/MenuScene.js'
 import GameScene from './scenes/GameScene.js';
+import level2 from './scenes/level2.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import gameConfig from './gameConfig'
 
@@ -9,15 +11,28 @@ const config = {
     width: gameConfig.width,
     height: gameConfig.height,
     backgroundColor: gameConfig.backgroundColor,
+    parent: divId,
+    // scale: {
+    //     // Or set parent divId here
+    //     parent: divId,
+
+    //     mode: Phaser.Scale.FIT,
+    // },
+    // fullscreenTarget: divId, // For fullscreen
+    dom: {
+        createContainer: true
+    },
     physics: {
         default: 'arcade',
         arcade: {
-            // debug: true, // Включаем отображение границ
+            debug: true, // Включаем отображение границ
         }
     },
     scene: [
         PreloadScene,
+        MenuScene,
         GameScene,
+        level2,
         GameOverScene
     ]
 }

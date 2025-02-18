@@ -8,13 +8,15 @@ export default class PreloadScene extends Scene {
     }
 
     preload() {
+        // this.load.css(style, '../styles/style.css');
+
         this.load.image('room', Room);
 
         // this.load.multiatlas('spritesheet', './assets/sprites/spritesheet.json', 'sprites');
         this.load.multiatlas('figures', './assets/sprites/figures.json', 'sprites');
     }
-    
+
     create() {
-        this.scene.start('GameScene', { isRestart: true })
+        this.scene.start('MenuScene', { isRestart: true })
     }
 }
