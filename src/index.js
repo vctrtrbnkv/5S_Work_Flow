@@ -1,7 +1,7 @@
 import { Game, AUTO } from 'phaser';
 import PreloadScene from './scenes/PreloadScene.js';
 import MenuScene from './scenes/MenuScene.js'
-import GameScene from './scenes/GameScene.js';
+import level1 from './scenes/level1.js';
 import level2 from './scenes/level2.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import gameConfig from './gameConfig'
@@ -31,7 +31,7 @@ const config = {
     scene: [
         PreloadScene,
         MenuScene,
-        GameScene,
+        level1,
         level2,
         GameOverScene
     ]

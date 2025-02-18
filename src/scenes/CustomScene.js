@@ -10,6 +10,8 @@ export default class CustomScene extends Scene {
         this.zones = {};
     }
 
+
+
     createGroupOfZones() {
         this.groupOfZones = this.physics.add.group(); // Используем this
         return this.groupOfZones;
@@ -76,13 +78,10 @@ export default class CustomScene extends Scene {
         this.#test
 
         sprite.on('pointerdown', function () {
-            debugger;
             this.setAlpha(0.5);
             this.setData('dragging', true);
             this.setDepth(1);
         });
-
-        console.log(sprite);
 
         this.input.on('pointermove', function (pointer) {
             if (sprite.getData('dragging')) {
@@ -96,7 +95,6 @@ export default class CustomScene extends Scene {
                 ;
                 this.setAlpha(1);
                 this.setData('dragging', false);
-                console.log(sprite.x, sprite.y);
             });
         }, 1000);
 
@@ -194,4 +192,86 @@ export default class CustomScene extends Scene {
 
         return sprite;
     }
+
+    // updateSidebar(sidebar) {
+    //     console.log(this.listOfTasks);
+
+
+        
+        // sidebar.innerHTML = '';
+
+        // listOfTask.forEach((task) => {
+        //     const taskContainer = document.createElement("div");
+        //     const titleGroup = document.createElement("div");
+        //     const triangle = document.createElement("div");
+        //     const title = document.createElement("h3");
+        //     const itemList = document.createElement("ul");
+
+        //     taskContainer.classList.add("sidebar__task");
+        //     titleGroup.classList.add("sidebar__task-title-group");
+        //     triangle.classList.add("triangle");
+        //     title.classList.add("sidebar__task-title");
+        //     itemList.classList.add("sidebar__task-list", "sidebar__task-list--open");
+
+        //     title.textContent = task.description;
+
+        //     titleGroup.addEventListener("click", () => {
+        //         itemList.classList.toggle("sidebar__task-list--open");
+        //         triangle.classList.toggle("triangle--close");
+        //     });
+
+        //     task.items.forEach((item) => {
+        //         const listItem = document.createElement("li");
+        //         listItem.setAttribute("data-id", item.id);
+        //         listItem.classList.add("sidebar__task-item");
+
+        //         if (item.done) {
+        //             listItem.innerHTML = `<s>${item.description}</s>`;
+        //             listItem.classList.add("sidebar__task-item--done");
+        //         } else {
+        //             listItem.textContent = item.description;
+        //         }
+
+        //         itemList.appendChild(listItem);
+        //     });
+
+        //     task.items.sort((a, b) => {
+        //         if (a.done === b.done) {
+        //             return 0;
+        //         }
+        //         return a.done ? 1 : -1;
+        //     });
+
+        //     titleGroup.appendChild(triangle);
+        //     titleGroup.appendChild(title);
+
+        //     taskContainer.appendChild(titleGroup);
+        //     taskContainer.appendChild(itemList);
+        //     sidebar.appendChild(taskContainer);
+        // });
+
+    //     return sidebar;
+    // }
+
+    updateTaskItem(item, listOfTask) {
+        const id = item.id;
+
+        listOfTask.forEach((task) => {
+            const foundItem = task.items.find(i => i.id === id);
+
+            if (foundItem) {
+                const listItem = document.querySelector(`[data-id="${task.id}"]`);
+
+                if (listItem) {
+                    if (foundItem.done) {
+                        listItem.innerHTML = `<s>${foundItem.name}</s>`;
+                        listItem.classList.add("sidebar__task-item--done");
+                    }
+                }
+            }
+        });
+    }
+
+
+   
 }

@@ -132,7 +132,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'greenPiramidLarge',
+      key: 'greenPyramidLarge',
       imageName: 'greenPiramidLarge.png',
       x: 346,
       y: 295,
@@ -165,7 +165,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'redPiramidLarge',
+      key: 'redPyramidLarge',
       imageName: 'redPiramidLarge.png',
       x: 601,
       y: 399,
@@ -198,7 +198,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'greenPiramidSmall',
+      key: 'greenPyramidSmall',
       imageName: 'greenPiramidSmall.png',
       x: 411,
       y: 286,
@@ -220,7 +220,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'greenPiramidMedium',
+      key: 'greenPyramidMedium',
       imageName: 'greenPiramidMedium.png',
       x: 431,
       y: 380,
@@ -231,7 +231,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'redPiramidMedium',
+      key: 'redPyramidMedium',
       imageName: 'redPiramidMedium.png',
       x: 537,
       y: 433,
@@ -309,7 +309,7 @@ export const ALL_OBJECTS = [
       }
    },
    {
-      key: 'redPiramidSmall',
+      key: 'redPyramidSmall',
       imageName: 'redPiramidSmall.png',
       x: 530,
       y: 460,

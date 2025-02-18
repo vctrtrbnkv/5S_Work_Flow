@@ -6,9 +6,13 @@ import { ALL_ZONES } from '../constants/level2/zones.js';
 export default class level2 extends CustomScene {
     constructor() {
         super('level2');
+        console.log('CONST');
+        
     }
 
     create() {
+        console.log('CREATE');
+        
         const sidebar = document.getElementById('sidebar');
         // sidebar.style.display = 'block';
 

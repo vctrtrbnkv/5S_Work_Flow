@@ -18,5 +18,6 @@ export default class PreloadScene extends Scene {
 
     create() {
         this.scene.start('MenuScene', { isRestart: true })
+        // this.scene.start('level1', { isRestart: true })
     }
 }

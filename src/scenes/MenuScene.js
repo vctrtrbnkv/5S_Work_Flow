@@ -28,8 +28,8 @@ export default class MenuScene extends Scene {
         const domElement = this.add.dom(10, 100, menu).setOrigin(0, 0);
 
         startButton.addEventListener('click', () => {
-            // this.scene.start('GameScene');
-            this.scene.start('level2');
+            this.scene.start('level1');
+            // this.scene.start('level2');
         })
     }
 }
