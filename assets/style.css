@@ -152,6 +152,7 @@ button {
 
 .sidebar {
     position: relative;
+    z-index: 3;
     top: 0;
     right: 0;
 
@@ -279,6 +280,7 @@ button {
 
 .levelEndModal {
     position: absolute;
+    z-index: 2;
     top: 40%;
     left: 40%;
 

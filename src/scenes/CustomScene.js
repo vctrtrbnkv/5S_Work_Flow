@@ -290,11 +290,18 @@ export default class CustomScene extends Scene {
 
         sprite.on('pointerdown', () => {
             sprite.isNew = false;
+            this.input.setDefaultCursor('grabbing');
+        });
+
+        sprite.on('pointerup', () => {
+            sprite.isNew = false;
+            this.input.setDefaultCursor('grab');
         });
 
         sprite.on('pointerover', () => {
-            this.input.setDefaultCursor('pointer'); // Изменяем курсор на "поинтер"
+            this.input.setDefaultCursor('grab'); // Изменяем курсор на "поинтер"
         });
+
         
         sprite.on('pointerout', () => {
             this.input.setDefaultCursor('default'); // Возвращаем стандартный курсор
