@@ -20,6 +20,7 @@ export default class MenuScene extends Scene {
         const aboutButton = document.createElement('button');
         aboutButton.innerText = 'Об игре';
         aboutButton.classList.add('menu__button', 'menu__button--secondary');
+        aboutButton.disabled = true;
 
         menu.append(title);
         menu.append(startButton);

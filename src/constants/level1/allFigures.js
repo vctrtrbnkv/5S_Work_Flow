@@ -1,42 +1,10 @@
 export const ALL_OBJECTS = [
    {
-      key: 'boxRemove',
-      imageName: 'boxRemove.png',
-      x: 528,
-      y: 622,
-      scale: 0.6,
-      options: {
-         isDestroyable: false,
-         isInteractive: true,
-      }
-   },
-   {
-      key: 'boxNeeded',
-      imageName: 'boxNeeded.png',
-      x: 343,
-      y: 649,
-      scale: 0.6,
-      options: {
-         isDestroyable: false,
-         isInteractive: true,
-      }
-   },
-   {
-      key: 'boxRequired',
-      imageName: 'boxRequired.png',
-      x: 173,
-      y: 550,
-      scale: 0.6,
-      options: {
-         isDestroyable: false,
-         isInteractive: true,
-      }
-   },
-   {
       key: 'greenFigureLarge',
       imageName: 'greenFigureLarge.png',
-      x: 697,
-      y: 571,
+      name: 'greenFigureLarge',
+      x: 375,
+      y: 287,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -46,8 +14,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenEllipseMedium',
       imageName: 'greenEllipseMedium.png',
-      x: 684,
-      y: 605,
+      name: 'greenEllipseMedium',
+      x: 342,
+      y: 318,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -57,8 +26,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redEllipseMedium',
       imageName: 'redEllipseMedium.png',
-      x: 219,
-      y: 509,
+      name: 'redEllipseMedium',
+      x: 370,
+      y: 246,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -68,8 +38,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redFigureLarge',
       imageName: 'redFigureLarge.png',
-      x: 416,
-      y: 288,
+      name: 'redFigureLarge',
+      x: 311,
+      y: 325,
       scale: 0.3,
       options: {
          isDestroyable: true,
@@ -79,8 +50,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowEllipseMedium',
       imageName: 'yellowEllipseMedium.png',
-      x: 708,
-      y: 538,
+      name: 'yellowEllipseMedium',
+      x: 409,
+      y: 326,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -90,8 +62,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenEllipseSmall',
       imageName: 'greenEllipseSmall.png',
-      x: 725,
-      y: 465,
+      name: 'greenEllipseSmall',
+      x: 369,
+      y: 331,
       scale: 0.4,
       options: {
          isDestroyable: true,
@@ -101,8 +74,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowFigureLarge',
       imageName: 'yellowFigureLarge.png',
-      x: 343,
-      y: 329,
+      name: 'yellowFigureLarge',
+      x: 465,
+      y: 343,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -112,9 +86,10 @@ export const ALL_OBJECTS = [
    {
       key: 'redEllipseSmall',
       imageName: 'redEllipseSmall.png',
-      x: 255,
-      y: 488,
-      scale: 0.7,
+      name: 'redEllipseSmall',
+      x: 281,
+      y: 345,
+      scale: 0.4,
       options: {
          isDestroyable: true,
          isInteractive: true,
@@ -123,8 +98,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowEllipseSmall',
       imageName: 'yellowEllipseSmall.png',
-      x: 332,
-      y: 285,
+      name: 'yellowEllipseSmall',
+      x: 302,
+      y: 357,
       scale: 0.4,
       options: {
          isDestroyable: true,
@@ -132,11 +108,24 @@ export const ALL_OBJECTS = [
       }
    },
    {
+      key: 'greenPyramidSmall',
+      imageName: 'greenPyramidSmall.png',
+      name: 'greenPyramidSmall',
+      x: 350,
+      y: 350,
+      scale: 0.6,
+      options: {
+         isDestroyable: true,
+         isInteractive: true,
+      }
+   },
+   {
       key: 'greenPyramidLarge',
-      imageName: 'greenPiramidLarge.png',
-      x: 346,
-      y: 295,
-      scale: 0.2,
+      imageName: 'greenPyramidLarge.png',
+      name: 'greenPyramidLarge',
+      x: 385,
+      y: 355,
+      scale: 0.6,
       options: {
          isDestroyable: true,
          isInteractive: true,
@@ -145,9 +134,10 @@ export const ALL_OBJECTS = [
    {
       key: 'greenEllipseLarge',
       imageName: 'greenEllipseLarge.png',
-      x: 480,
-      y: 402,
-      scale: 0.5,
+      name: 'greenEllipseLarge',
+      x: 129,
+      y: 393,
+      scale: 0.7,
       options: {
          isDestroyable: true,
          isInteractive: true,
@@ -156,9 +146,10 @@ export const ALL_OBJECTS = [
    {
       key: 'redEllipseLarge',
       imageName: 'redEllipseLarge.png',
-      x: 520,
-      y: 346,
-      scale: 0.5,
+      name: 'redEllipseLarge',
+      x: 246,
+      y: 472,
+      scale: 0.7,
       options: {
          isDestroyable: true,
          isInteractive: true,
@@ -166,9 +157,10 @@ export const ALL_OBJECTS = [
    },
    {
       key: 'redPyramidLarge',
-      imageName: 'redPiramidLarge.png',
-      x: 601,
-      y: 399,
+      imageName: 'redPyramidLarge.png',
+      name: 'redPyramidLarge',
+      x: 511,
+      y: 395,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -178,8 +170,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowEllipseLarge',
       imageName: 'yellowEllipseLarge.png',
-      x: 530,
-      y: 160,
+      name: 'yellowEllipseLarge',
+      x: 430,
+      y: 384,
       scale: 0.3,
       options: {
          isDestroyable: true,
@@ -189,20 +182,10 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowPyramidLarge',
       imageName: 'yellowPyramidLarge.png',
-      x: 451,
-      y: 317,
+      name: 'yellowPyramidLarge',
+      x: 550,
+      y: 420,
       scale: 0.5,
-      options: {
-         isDestroyable: true,
-         isInteractive: true,
-      }
-   },
-   {
-      key: 'greenPyramidSmall',
-      imageName: 'greenPiramidSmall.png',
-      x: 411,
-      y: 286,
-      scale: 0.6,
       options: {
          isDestroyable: true,
          isInteractive: true,
@@ -211,8 +194,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowCubeLarge',
       imageName: 'yellowCubeLarge.png',
-      x: 688,
-      y: 465,
+      name: 'yellowCubeLarge',
+      x: 599,
+      y: 429,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -221,9 +205,10 @@ export const ALL_OBJECTS = [
    },
    {
       key: 'greenPyramidMedium',
-      imageName: 'greenPiramidMedium.png',
-      x: 431,
-      y: 380,
+      imageName: 'greenPyramidMedium.png',
+      name: 'greenPyramidMedium',
+      x: 600,
+      y: 397,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -232,9 +217,10 @@ export const ALL_OBJECTS = [
    },
    {
       key: 'redPyramidMedium',
-      imageName: 'redPiramidMedium.png',
-      x: 537,
-      y: 433,
+      imageName: 'redPyramidMedium.png',
+      name: 'redPyramidMedium',
+      x: 457,
+      y: 301,
       scale: 0.4,
       options: {
          isDestroyable: true,
@@ -244,8 +230,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenCubeLarge',
       imageName: 'greenCubeLarge.png',
-      x: 290,
-      y: 459,
+      name: 'greenCubeLarge',
+      x: 387,
+      y: 259,
       scale: 0.2,
       options: {
          isDestroyable: true,
@@ -255,8 +242,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowPyramidMedium',
       imageName: 'yellowPyramidMedium.png',
-      x: 664,
-      y: 435,
+      name: 'yellowPyramidMedium',
+      x: 86,
+      y: 408,
       scale: 0.6,
       options: {
          isDestroyable: true,
@@ -266,8 +254,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redCubeLarge',
       imageName: 'redCubeLarge.png',
-      x: 592,
-      y: 453,
+      name: 'redCubeLarge',
+      x: 633,
+      y: 448,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -278,8 +267,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenFigureMedium',
       imageName: 'greenFigureMedium.png',
-      x: 515,
-      y: 366,
+      name: 'greenFigureMedium',
+      x: 591,
+      y: 452,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -289,8 +279,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redFigureMedium',
       imageName: 'redFigureMedium.png',
-      x: 398,
-      y: 348,
+      name: 'redFigureMedium',
+      x: 573,
+      y: 463,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -300,8 +291,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowFigureMedium',
       imageName: 'yellowFigureMedium.png',
-      x: 632,
-      y: 506,
+      name: 'yellowFigureMedium',
+      x: 555,
+      y: 473,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -310,9 +302,10 @@ export const ALL_OBJECTS = [
    },
    {
       key: 'redPyramidSmall',
-      imageName: 'redPiramidSmall.png',
-      x: 530,
-      y: 460,
+      imageName: 'redPyramidSmall.png',
+      name: 'redPyramidSmall',
+      x: 407,
+      y: 396,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -322,8 +315,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowPyramidSmall',
       imageName: 'yellowPyramidSmall.png',
-      x: 451,
-      y: 317,
+      name: 'yellowPyramidSmall',
+      x: 633,
+      y: 416,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -333,8 +327,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenCubeSmall',
       imageName: 'greenCubeSmall.png',
-      x: 411,
-      y: 286,
+      name: 'greenCubeSmall',
+      x: 583,
+      y: 405,
       scale: 0.6,
       options: {
          isDestroyable: true,
@@ -344,8 +339,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redCubeSmall',
       imageName: 'redCubeSmall.png',
-      x: 688,
-      y: 465,
+      name: 'redCubeSmall',
+      x: 107,
+      y: 433,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -355,8 +351,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenCubeMedium',
       imageName: 'greenCubeMedium.png',
-      x: 431,
-      y: 380,
+      name: 'greenCubeMedium',
+      x: 610,
+      y: 477,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -366,8 +363,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redCubeMedium',
       imageName: 'redCubeMedium.png',
-      x: 384,
-      y: 275,
+      name: 'redCubeMedium',
+      x: 611,
+      y: 455,
       scale: 0.4,
       options: {
          isDestroyable: true,
@@ -377,8 +375,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowCubeSmall',
       imageName: 'yellowCubeSmall.png',
-      x: 556,
-      y: 474,
+      name: 'yellowCubeSmall',
+      x: 169,
+      y: 410,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -388,8 +387,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowCubeMedium',
       imageName: 'yellowCubeMedium.png',
-      x: 385,
-      y: 301,
+      name: 'yellowCubeMedium',
+      x: 582,
+      y: 426,
       scale: 0.6,
       options: {
          isDestroyable: true,
@@ -399,8 +399,9 @@ export const ALL_OBJECTS = [
    {
       key: 'greenFigureSmall',
       imageName: 'greenFigureSmall.png',
-      x: 548,
-      y: 369,
+      name: 'greenFigureSmall',
+      x: 666,
+      y: 463,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -410,8 +411,9 @@ export const ALL_OBJECTS = [
    {
       key: 'redFigureSmall',
       imageName: 'redFigureSmall.png',
-      x: 566,
-      y: 373,
+      name: 'redFigureSmall',
+      x: 468,
+      y: 381,
       scale: 0.5,
       options: {
          isDestroyable: true,
@@ -421,8 +423,9 @@ export const ALL_OBJECTS = [
    {
       key: 'yellowFigureSmall',
       imageName: 'yellowFigureSmall.png',
-      x: 556,
-      y: 381,
+      name: 'yellowFigureSmall',
+      x: 310,
+      y: 299,
       scale: 0.5,
       options: {
          isDestroyable: true,

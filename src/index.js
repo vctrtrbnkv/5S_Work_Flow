@@ -3,6 +3,7 @@ import PreloadScene from './scenes/PreloadScene.js';
 import MenuScene from './scenes/MenuScene.js'
 import level1 from './scenes/level1.js';
 import level2 from './scenes/level2.js';
+import level3 from './scenes/level3.js';
 import GameOverScene from './scenes/GameOverScene.js';
 import gameConfig from './gameConfig'
 
@@ -12,20 +13,13 @@ const config = {
     height: gameConfig.height,
     backgroundColor: gameConfig.backgroundColor,
     parent: divId,
-    // scale: {
-    //     // Or set parent divId here
-    //     parent: divId,
-
-    //     mode: Phaser.Scale.FIT,
-    // },
-    // fullscreenTarget: divId, // For fullscreen
     dom: {
         createContainer: true
     },
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true, // Включаем отображение границ
+            // debug: true,
         }
     },
     scene: [
@@ -33,6 +27,7 @@ const config = {
         MenuScene,
         level1,
         level2,
+        level3,
         GameOverScene
     ]
 }

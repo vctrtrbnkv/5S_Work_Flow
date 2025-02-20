@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/sprites/style.css">
+  <link rel="stylesheet" href="/assets/style.css">
   <title>5S WORK FLOW</title>
 </head>
 
@@ -15,15 +15,33 @@
 
   <aside id="sidebar" class="sidebar"></aside>
 
-  <aside id="modal" class="modal">
+  <aside id="helloModal" class="helloModal">
 
-    <div class="modal__text-content">
-      <p>Привет! Это игра по системе 5С! Давай сделаем наш офис более эффективным!</p>
-    </div>
+    <div id="helloModal__text-content" class="helloModal__text-content"></div>
 
-    <div class="modal__maskot"><img src="assets/maskot.png" alt="maskot"></div>
+    <img class="helloModal__maskot" src="assets/maskot.png" alt="maskot">
   </aside>
- 
+
+  <button id="skipButton" class="skipButton">Пропустить</button>
+
+  <aside id="levelEndModal" class="levelEndModal">
+    <div class="levelEndModal__header">
+      <div class="levelEndModal_circleGroup">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </div>
+    <div class="levelEndModal__content">
+      <div class="levelEndModal__imageWrapper">
+        <img class="levelEndModal__image" src="./assets/modalFigure.png" alt="figures">
+      </div>
+      <div class="levelEndModal__text">Уровень пройден!</div>
+    </div>
+    <div class="levelEndModal__buttonWrapper">
+      <button class="levelEndModal__button">ОК</button>
+    </div>
+  </aside>
 </body>
 
 </html>
