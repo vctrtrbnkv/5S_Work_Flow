@@ -13,6 +13,17 @@
 
   <div id="divId"></div>
 
+  <aside id="menu" class="menu">
+    <img src="./assets/figuresBig.png" alt="figures" class="menu__image">
+
+    <h1 class="menu__title">5S WORK FLOW</h1>
+
+    <div id="menuButtons">
+      <button id="startButton" class="menu__button menu__button--secondary">Новая игра</button>
+      <button class="menu__button menu__button--tertiary" disabled>Об игре</button>
+    </div>
+  </aside>
+
   <aside id="sidebar" class="sidebar"></aside>
 
   <aside id="helloModal" class="helloModal">
@@ -23,6 +34,8 @@
   </aside>
 
   <button id="skipButton" class="skipButton">Пропустить</button>
+
+  <button id="toMenuButton" class="toMenuButton">В меню</button>
 
   <aside id="levelEndModal" class="levelEndModal">
     <div class="levelEndModal__header">
@@ -42,6 +55,8 @@
       <button class="levelEndModal__button">ОК</button>
     </div>
   </aside>
+
+  <div id="gameOver" class="gameOver"></div>
 </body>
 
 </html>

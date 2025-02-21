@@ -6,14 +6,17 @@ import { LIST_OF_TASKS } from '../constants/level2/tasks.js';
 
 export default class level2 extends CustomScene {
     constructor() {
-        super('level2');
+        super('level2', { key: 'Level2' });
     }
 
     create() {
+        this.saveScene(this.scene.key);
+
         this.cameras.main.fadeIn(1000, 217, 217, 217);
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('level2');
         this.renderSkipButton('level3');
+        this.renderToMenuButton();
 
         this.input.dragDistanceThreshold = 0;
 
@@ -62,5 +65,9 @@ export default class level2 extends CustomScene {
                 this.endOfGameCheck(LIST_OF_TASKS, 'level3')
             }
         });
+    }
+
+    shutdown() {
+        saveScene(this.scene.key);
     }
 }

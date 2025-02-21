@@ -16,14 +16,64 @@ export default class CustomScene extends Scene {
         this.zones = {};
     }
 
+    saveScene(sceneKey) {
+        localStorage.setItem('lastScene', sceneKey);
+    }
+
+    loadLastScene() {
+        return localStorage.getItem('lastScene');
+    }
+
+    removeLastSceneInLocalStorage() {
+        localStorage.removeItem('lastScene');
+    }
+
+    renderMenu() {
+        const menu = document.getElementById('menu');
+        const menuButtons = document.getElementById('menuButtons');
+        const startButton = document.getElementById('startButton');
+        
+        const lastScene = this.loadLastScene();
+    
+        let continueButton = document.getElementById('continueButton');
+    
+        if (lastScene) {
+            if (!continueButton) { 
+                continueButton = document.createElement('button');
+                continueButton.id = 'continueButton'; 
+                continueButton.innerText = 'Продолжить';
+                continueButton.classList.add('menu__button', 'menu__button--primary');
+                menuButtons.prepend(continueButton);
+            }
+    
+            continueButton.addEventListener('click', () => {
+                this.scene.start(lastScene);
+                menu.style.display = 'none';
+            });
+        } else {
+            if (continueButton) {
+                continueButton.remove();
+            }
+        }
+    
+        startButton.addEventListener('click', () => {
+            this.scene.start('level1');
+            menu.style.display = 'none';
+        });
+    
+        menu.style.display = 'block';
+    }
+
     removeAllModals() {
         const skipButton = document.getElementById('skipButton');
         const modal = document.getElementById('helloModal');
         const sidebar = document.getElementById('sidebar');
+        const toMenuButton = document.getElementById('toMenuButton');
 
         skipButton.classList.remove("skipButton--open");
         modal.classList.remove("helloModal--open");
         sidebar.classList.remove("sidebar--open");
+        toMenuButton.classList.remove("toMenuButton--open");
     }
 
     renderSkipButton(SceneName) {
@@ -31,8 +81,19 @@ export default class CustomScene extends Scene {
         skipButton.classList.add("skipButton--open");
 
         skipButton.addEventListener("click", () => {
-            this.cameras.main.fadeOut(3000, 217, 217, 217)
+            // this.cameras.main.fadeOut(3000, 217, 217, 217)
             this.scene.start(SceneName);
+        })
+    }
+
+    renderToMenuButton() {
+        const toMenuButton = document.getElementById('toMenuButton');
+        toMenuButton.classList.add("toMenuButton--open");
+
+        toMenuButton.addEventListener("click", () => {
+            this.cameras.main.fadeOut(3000, 217, 217, 217)
+            this.scene.start('MenuScene');
+            this.removeAllModals();
         })
     }
 

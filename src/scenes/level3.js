@@ -6,14 +6,17 @@ import { LIST_OF_TASKS } from '../constants/level3/tasks.js';
 
 export default class level3 extends CustomScene {
     constructor() {
-        super('level3');
+        super('level3', { key: 'Level3' });
     }
 
     create() {
+        this.saveScene(this.scene.key);
+
         this.cameras.main.fadeIn(1000, 217, 217, 217);
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('level3');
         this.renderSkipButton('GameOverScene');
+        this.renderToMenuButton();
 
         this.input.dragDistanceThreshold = 0;
 
@@ -62,5 +65,9 @@ export default class level3 extends CustomScene {
                 this.endOfGameCheck(LIST_OF_TASKS, 'GameOverScene')
             }
         });
+    }
+
+    shutdown() {
+        saveScene(this.scene.key);
     }
 }

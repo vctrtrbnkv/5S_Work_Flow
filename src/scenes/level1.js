@@ -7,15 +7,18 @@ import { ALL_ZONES } from '../constants/level1/zones.js';
 
 export default class level1 extends CustomScene {
     constructor() {
-        super('level1');
+        super('level1', { key: 'Level1' });
     }
 
     create() {
+        this.saveScene(this.scene.key);
+
         this.cameras.main.fadeIn(1000, 217, 217, 217);
         this.removeAllModals();
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('hello');
         this.renderSkipButton('level2');
+        this.renderToMenuButton();
 
         const room = this.add.image(0, 0, 'room').setOrigin(0, 0);
         room.setPosition(10, 10);
@@ -40,5 +43,9 @@ export default class level1 extends CustomScene {
             console.log(pointer.x, pointer.y);
             
         });
+    }
+
+    shutdown() {
+        saveScene(this.scene.key);
     }
 }
