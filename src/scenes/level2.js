@@ -6,7 +6,7 @@ import { LIST_OF_TASKS } from '../constants/level2/tasks.js';
 
 export default class level2 extends CustomScene {
     constructor() {
-        super('level2', { key: 'Level2' });
+        super('level2');
     }
 
     create() {

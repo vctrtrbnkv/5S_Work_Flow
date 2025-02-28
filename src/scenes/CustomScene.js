@@ -1,5 +1,8 @@
 import { Scene } from 'phaser';
 
+import { SOUNDS } from '../constants/sounds/sounds.js'
+import PreloadScene from './PreloadScene.js';
+
 const MESSAGES = {
     hello: 'Привет! Это игра по системе 5С! Давай сделаем наш офис более эффективным!',
     level2: 'Отлично! Теперь давай расставим нужные предметы по местам! Кликай на коробку, чтобы достать предметы.',
@@ -32,35 +35,44 @@ export default class CustomScene extends Scene {
         const menu = document.getElementById('menu');
         const menuButtons = document.getElementById('menuButtons');
         const startButton = document.getElementById('startButton');
-        
+
         const lastScene = this.loadLastScene();
-    
+
         let continueButton = document.getElementById('continueButton');
-    
+
+        const soundtrack = SOUNDS.click;
+        const music = PreloadScene.sounds[soundtrack];
+
         if (lastScene) {
-            if (!continueButton) { 
+            if (!continueButton) {
                 continueButton = document.createElement('button');
-                continueButton.id = 'continueButton'; 
+                continueButton.id = 'continueButton';
                 continueButton.innerText = 'Продолжить';
                 continueButton.classList.add('menu__button', 'menu__button--primary');
                 menuButtons.prepend(continueButton);
             }
-    
+
             continueButton.addEventListener('click', () => {
                 this.scene.start(lastScene);
                 menu.style.display = 'none';
+                music.play({
+                    volume: 0.2,
+                });
             });
         } else {
             if (continueButton) {
                 continueButton.remove();
             }
         }
-    
+
         startButton.addEventListener('click', () => {
             this.scene.start('level1');
             menu.style.display = 'none';
+            music.play({
+                volume: 0.2,
+            });
         });
-    
+
         menu.style.display = 'block';
     }
 
@@ -80,21 +92,33 @@ export default class CustomScene extends Scene {
         const skipButton = document.getElementById('skipButton');
         skipButton.classList.add("skipButton--open");
 
-        skipButton.addEventListener("click", () => {
-            // this.cameras.main.fadeOut(3000, 217, 217, 217)
+        skipButton.onclick = () => {
             this.scene.start(SceneName);
-        })
+            const soundtrack = SOUNDS.click;
+            const music = PreloadScene.sounds[soundtrack];
+
+            music.play({
+                volume: 0.2,
+            });
+        };
     }
 
     renderToMenuButton() {
         const toMenuButton = document.getElementById('toMenuButton');
         toMenuButton.classList.add("toMenuButton--open");
 
-        toMenuButton.addEventListener("click", () => {
+        toMenuButton.onclick = () => {
             this.cameras.main.fadeOut(3000, 217, 217, 217)
             this.scene.start('MenuScene');
             this.removeAllModals();
-        })
+
+            const soundtrack = SOUNDS.click;
+            const music = PreloadScene.sounds[soundtrack];
+
+            music.play({
+                volume: 0.2,
+            });
+        };
     }
 
     renderHelloModal(message) {
@@ -109,8 +133,15 @@ export default class CustomScene extends Scene {
         textContainer.append(text);
         modal.classList.add("helloModal--open");
 
+        const track = SOUNDS.modalSound;
+        const sound = PreloadScene.sounds[track];
+        sound.play({
+            volume: 0.2,
+        });
+
         setTimeout(() => {
             modal.classList.remove("helloModal--open");
+            sound.play();
         }, 10_000)
     }
 
@@ -185,6 +216,15 @@ export default class CustomScene extends Scene {
 
         foundItem.innerHTML = `<s>${foundItem.innerHTML}</s>`;
 
+        let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.pencilCheckSounds);
+        let sound = PreloadScene.sounds[randomSoundName];
+
+        if (sound) {
+            sound.play({
+                volume: 0.4,
+            });
+        }
+
         foundItem.classList.toggle('sidebar__task-item--remove');
         foundItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
@@ -216,7 +256,21 @@ export default class CustomScene extends Scene {
             this.cameras.main.fadeOut(3000, 217, 217, 217)
             this.scene.start(SceneName);
             modal.classList.remove('levelEndModal--open');
+
+            const soundtrack = SOUNDS.click;
+            const music = PreloadScene.sounds[soundtrack];
+
+            music.play({
+                volume: 0.2,
+            });
         })
+
+        const soundtrack = SOUNDS.success;
+        const music = PreloadScene.sounds[soundtrack];
+
+        music.play({
+            volume: 0.2,
+        });
     }
 
     createSprite(obj) {
@@ -330,6 +384,14 @@ export default class CustomScene extends Scene {
                 sceneContext.isDragging = true;
                 this.setData('draggable', true);
                 this.setDepth(10);
+
+
+                let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.dragSounds);
+                let sound = PreloadScene.sounds[randomSoundName];
+
+                if (sound) {
+                    sound.play();
+                }
             }
         });
 
@@ -347,6 +409,13 @@ export default class CustomScene extends Scene {
             } else {
                 this.setData('draggable', false);
             }
+
+            let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.dropSounds);
+            let sound = PreloadScene.sounds[randomSoundName];
+
+            if (sound) {
+                sound.play();
+            }
         });
 
         sprite.on('pointerdown', () => {
@@ -360,12 +429,12 @@ export default class CustomScene extends Scene {
         });
 
         sprite.on('pointerover', () => {
-            this.input.setDefaultCursor('grab'); // Изменяем курсор на "поинтер"
+            this.input.setDefaultCursor('grab');
         });
 
-        
+
         sprite.on('pointerout', () => {
-            this.input.setDefaultCursor('default'); // Возвращаем стандартный курсор
+            this.input.setDefaultCursor('default');
         });
     }
 
@@ -416,5 +485,21 @@ export default class CustomScene extends Scene {
         });
 
         return sprite;
+    }
+
+    createSounds(name) {
+        if (!this.cache.audio.has(name)) {
+            console.warn(`🚨 Звук "${name}" не найден в кэше Phaser!`);
+            return null;
+        }
+
+        const sound = this.sound.add(name);
+
+        PreloadScene.sounds = {
+            ...PreloadScene.sounds,
+            [name]: sound,
+        };
+
+        return sound;
     }
 }

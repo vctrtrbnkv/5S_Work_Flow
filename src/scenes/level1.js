@@ -4,10 +4,9 @@ import { ALL_OBJECTS } from '../constants/level1/allFigures.js';
 import { LIST_OF_TASKS } from '../constants/level1/tasks.js';
 import { ALL_ZONES } from '../constants/level1/zones.js';
 
-
 export default class level1 extends CustomScene {
     constructor() {
-        super('level1', { key: 'Level1' });
+        super('level1');
     }
 
     create() {
@@ -37,11 +36,6 @@ export default class level1 extends CustomScene {
                 this.markItemAsDone(spriteKey, sidebar, LIST_OF_TASKS);
                 this.endOfGameCheck(LIST_OF_TASKS, 'level2')
             }
-        });
-
-        this.input.on('pointerup', (pointer) => {
-            console.log(pointer.x, pointer.y);
-            
         });
     }
 
