@@ -5,7 +5,7 @@ import level1 from './scenes/level1.js';
 import level2 from './scenes/level2.js';
 import level3 from './scenes/level3.js';
 import GameOverScene from './scenes/GameOverScene.js';
-import gameConfig from './gameConfig'
+import gameConfig from './gameConfig.js'
 
 const config = {
     type: AUTO,
