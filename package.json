@@ -1,16 +1,20 @@
 {
   "name": "5s-work-flow",
+  "homepage": "https://vctrtrbnkv.github.io/5S_Work_Flow",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "vite": "^5.4.9"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "phaser": "^3.87.0"
   }
 }
