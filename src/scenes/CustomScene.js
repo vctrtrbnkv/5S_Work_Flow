@@ -168,6 +168,12 @@ export default class CustomScene extends Scene {
             titleGroup.addEventListener("click", () => {
                 itemList.classList.toggle("sidebar__task-list--open");
                 triangle.classList.toggle("triangle--close");
+                const soundtrack = SOUNDS.click;
+                const music = PreloadScene.sounds[soundtrack];
+
+                music.play({
+                    volume: 0.2,
+                });
             });
 
             task.items.forEach((item) => {
@@ -313,7 +319,7 @@ export default class CustomScene extends Scene {
         zone.name = name;
 
         zone
-            .setSize(zone.width - 30, zone.height - 20)
+            .setSize(zone.width - 25, zone.height - 15)
             .setOrigin(0.5, 0.5)
             .setScale(scale)
             .setDepth(1);
@@ -348,7 +354,7 @@ export default class CustomScene extends Scene {
         zone.targetKey = targetKey;
 
         zone
-            .setSize(30, 40)
+            .setSize(45, 45)
             .setOrigin(0.5, 0.5);
 
         const hoverText = this.add.text(x, y - 50, description, {

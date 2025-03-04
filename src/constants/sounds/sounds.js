@@ -1,7 +1,6 @@
 export const SOUNDS = {
     dragSounds: [
         'drag-01',
-        'drag-02',
     ],
     dropSounds: [
         'drop-01',

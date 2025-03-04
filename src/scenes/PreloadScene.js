@@ -17,7 +17,6 @@ export default class PreloadScene extends CustomScene {
         this.load.multiatlas('figures', './assets/sprites/figures.json', 'sprites');
 
         this.load.audio('drag-01', 'assets/sounds/drag-01.mp3');
-        this.load.audio('drag-02', 'assets/sounds/drag-02.mp3');
 
         this.load.audio('drop-01', 'assets/sounds/drop-01.mp3');
         this.load.audio('drop-02', 'assets/sounds/drop-02.mp3');
