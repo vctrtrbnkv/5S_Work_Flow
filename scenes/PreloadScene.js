@@ -3,6 +3,8 @@ import CustomScene from './CustomScene.js';
 import Room from '../assets/sprites/room.png';
 import Warehouse from '../assets/sprites/warehouse.png';
 
+import Drag01 from '../assets/sounds/drag-01.mp3'
+
 import { SOUNDS } from '../constants/sounds/sounds.js'
 
 export default class PreloadScene extends CustomScene {
@@ -16,7 +18,7 @@ export default class PreloadScene extends CustomScene {
 
         this.load.multiatlas('figures', '../assets/sprites/figures.json', 'sprites');
 
-        this.load.audio('drag-01', '../assets/sounds/drag-01.mp3');
+        this.load.audio('drag-01', Drag01);
 
         this.load.audio('drop-01', '../assets/sounds/drop-01.mp3');
         this.load.audio('drop-02', '../assets/sounds/drop-02.mp3');
