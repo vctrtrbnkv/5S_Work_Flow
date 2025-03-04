@@ -5,13 +5,12 @@ import level1 from './scenes/level1.js';
 import level2 from './scenes/level2.js';
 import level3 from './scenes/level3.js';
 import GameOverScene from './scenes/GameOverScene.js';
-import gameConfig from './gameConfig'
 
 const config = {
     type: AUTO,
-    width: gameConfig.width,
-    height: gameConfig.height,
-    backgroundColor: gameConfig.backgroundColor,
+    width: 800,
+    height: 800,
+    backgroundColor: '#D9D9D9',
     parent: divId,
     dom: {
         createContainer: true
@@ -31,5 +30,9 @@ const config = {
         GameOverScene
     ]
 }
+
+// const game = new Game(config); 
+console.log('config: ', config);
+
 
 new Game(config);

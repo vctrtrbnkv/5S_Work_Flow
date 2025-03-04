@@ -10,7 +10,7 @@ export const SOUNDS = {
         'paper-02',
         'paper-03',
     ],
-    backgroundMusic: 'background-music',
+    // backgroundMusic: 'background-music',
     modalSound: 'swoosh-modal',
     pencilCheckSounds: [
         'pencil-01',
