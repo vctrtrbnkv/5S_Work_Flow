@@ -8,31 +8,6 @@ import GameOverScene from "./scenes/GameOverScene.js";
 import gameConfig from "./gameConfig";
 
 const config = {
-<<<<<<< HEAD
-    type: AUTO,
-    width: gameConfig.width,
-    height: gameConfig.height,
-    backgroundColor: gameConfig.backgroundColor,
-    parent: divId,
-    dom: {
-        createContainer: true
-    },
-    physics: {
-        default: 'arcade',
-        arcade: {
-            // debug: true,
-        }
-    },
-    scene: [
-        PreloadScene,
-        MenuScene,
-        level1,
-        level2,
-        level3,
-        GameOverScene
-    ]
-}
-=======
   type: AUTO,
   width: gameConfig.width,
   height: gameConfig.height,
@@ -49,6 +24,5 @@ const config = {
   },
   scene: [PreloadScene, MenuScene, level1, level2, level3, GameOverScene],
 };
->>>>>>> test-2
 
 new Game(config);
