@@ -1,7 +1,17 @@
-module.exports = {
-    root: './',
-    build: {
-        outDir: 'dist',
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  root: "./",
+  build: {
+    outDir: "dist",
+  },
+  resolve: {
+    alias: {
+      // Optional: Alias for Phaser if needed
+      // 'phaser': 'phaser/dist/phaser.js'
     },
-    publicDir: 'assets'
- } 
+  },
+  optimizeDeps: {
+    include: ["phaser"],
+  },
+});
