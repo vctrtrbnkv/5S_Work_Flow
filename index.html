@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>5S WORK FLOW</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/style.css">
-  <title>5S WORK FLOW</title>
-</head>
+  <body>
+    <script type="module" src="/src/index.js"></script>
 
-<body>
-  <script type="module" src="/src/index.js"></script>
+    <div id="divId"></div>
 
-  <div id="divId"></div>
+    <aside id="menu" class="menu">
+      <img src="figuresBig.png" alt="figures" class="menu__image" />
 
-  <aside id="menu" class="menu">
-    <img src="./assets/figuresBig.png" alt="figures" class="menu__image">
+      <h1 class="menu__title">5S WORK FLOW</h1>
 
-    <h1 class="menu__title">5S WORK FLOW</h1>
-
-    <div id="menuButtons">
-      <button id="startButton" class="menu__button menu__button--secondary">Новая игра</button>
-      <button class="menu__button menu__button--tertiary" disabled>Об игре</button>
-    </div>
-  </aside>
-
-  <aside id="sidebar" class="sidebar"></aside>
-
-  <aside id="helloModal" class="helloModal">
-
-    <div id="helloModal__text-content" class="helloModal__text-content"></div>
-
-    <img class="helloModal__maskot" src="assets/maskot.png" alt="maskot">
-  </aside>
-
-  <button id="skipButton" class="skipButton">Пропустить</button>
-
-  <button id="toMenuButton" class="toMenuButton">В меню</button>
-
-  <aside id="levelEndModal" class="levelEndModal">
-    <div class="levelEndModal__header">
-      <div class="levelEndModal_circleGroup">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+      <div id="menuButtons">
+        <button id="startButton" class="menu__button menu__button--secondary">
+          Новая игра
+        </button>
+        <button class="menu__button menu__button--tertiary" disabled>
+          Об игре
+        </button>
       </div>
-    </div>
-    <div class="levelEndModal__content">
-      <div class="levelEndModal__imageWrapper">
-        <img class="levelEndModal__image" src="./assets/modalFigure.png" alt="figures">
+    </aside>
+
+    <aside id="sidebar" class="sidebar"></aside>
+
+    <aside id="helloModal" class="helloModal">
+      <div id="helloModal__text-content" class="helloModal__text-content"></div>
+
+      <img class="helloModal__maskot" src="maskot.png" alt="maskot" />
+    </aside>
+
+    <button id="skipButton" class="skipButton">Пропустить</button>
+
+    <button id="toMenuButton" class="toMenuButton">В меню</button>
+
+    <aside id="levelEndModal" class="levelEndModal">
+      <div class="levelEndModal__header">
+        <div class="levelEndModal_circleGroup">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
       </div>
-      <div class="levelEndModal__text">Уровень пройден!</div>
-    </div>
-    <div class="levelEndModal__buttonWrapper">
-      <button class="levelEndModal__button">ОК</button>
-    </div>
-  </aside>
+      <div class="levelEndModal__content">
+        <div class="levelEndModal__imageWrapper">
+          <img
+            class="levelEndModal__image"
+            src="modalFigure.png"
+            alt="figures"
+          />
+        </div>
+        <div class="levelEndModal__text">Уровень пройден!</div>
+      </div>
+      <div class="levelEndModal__buttonWrapper">
+        <button class="levelEndModal__button">ОК</button>
+      </div>
+    </aside>
 
-  <div id="gameOver" class="gameOver"></div>
-</body>
-
+    <div id="gameOver" class="gameOver"></div>
+  </body>
 </html>

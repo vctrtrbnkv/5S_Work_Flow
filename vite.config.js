@@ -1,7 +1,18 @@
-export default {
-    root: './',
-    build: {
-        outDir: 'dist',
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  root: "./",
+  build: {
+    outDir: "dist",
+    chunkSizeWarningLimit: 1600,
+  },
+  resolve: {
+    alias: {
+      // Optional: Alias for Phaser if needed
+      // 'phaser': 'phaser/dist/phaser.js'
     },
-    publicDir: 'src'
-}
+  },
+  optimizeDeps: {
+    include: ["phaser"],
+  },
+});
