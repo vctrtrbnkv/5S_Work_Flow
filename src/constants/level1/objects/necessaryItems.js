@@ -7,5 +7,5 @@ export const NECESSARY_ITEMS = [
     'smartphone',
     'trashCan',
     'laptop',
-    'box'
+    'box',
 ];

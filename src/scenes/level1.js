@@ -34,7 +34,7 @@ export default class level1 extends CustomScene {
                 delete this.sprites[spriteKey];
 
                 this.markItemAsDone(spriteKey, sidebar, LIST_OF_TASKS);
-                this.endOfGameCheck(LIST_OF_TASKS, 'level2')
+                this.endOfGameCheck(LIST_OF_TASKS, 'level2');
             }
         });
     }

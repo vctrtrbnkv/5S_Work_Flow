@@ -9,11 +9,11 @@ export default class GameOverScene extends CustomScene {
         this.removeAllModals();
         this.removeLastSceneInLocalStorage();
 
-        const container = document.getElementById('gameOver')
+        const container = document.getElementById('gameOver');
 
         const text = document.createElement('div');
         text.classList.add('gameOver__text');
-        text.textContent = 'Конец игры! Нажмите SPACE, чтобы вернуться в меню :)'
+        text.textContent = 'Конец игры! Нажмите SPACE, чтобы вернуться в меню :)';
 
         container.appendChild(text);
 
