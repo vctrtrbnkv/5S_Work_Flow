@@ -28,7 +28,7 @@ module.exports = {
             },
         },
         {
-            files: ["src/scenes/level*.js", "src/scenes/CustomScene.js"],
+            files: ["src/scenes/level*.js", "src/scenes/CustomScene.js", "src/index.js"],
             rules: {
                 "no-undef": "off",
             },
