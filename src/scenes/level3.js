@@ -36,14 +36,14 @@ export default class level3 extends CustomScene {
 
         let currentIndex = 0;
         
-        box.on("pointerdown", () => {
+        box.on('pointerdown', () => {
             if (currentIndex < ALL_OBJECTS.length) {
         
                 const obj = ALL_OBJECTS[currentIndex];
         
                 const sprite = this.createSpriteWithAnimation(obj, {
                     x: 150,
-                    y: 600
+                    y: 600,
                 });
         
                 sprites.push(sprite);
@@ -62,7 +62,7 @@ export default class level3 extends CustomScene {
                 gameObject.input.enabled = false;
 
                 this.markItemAsDone(gameObject.name, sidebar, LIST_OF_TASKS);
-                this.endOfGameCheck(LIST_OF_TASKS, 'GameOverScene')
+                this.endOfGameCheck(LIST_OF_TASKS, 'GameOverScene');
             }
         });
     }

@@ -19,4 +19,4 @@ export const SOUNDS = {
     ],
     success: 'success',
     click: 'mouse-click-sound',
-}
+};

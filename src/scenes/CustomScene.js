@@ -1,13 +1,13 @@
 import { Scene } from 'phaser';
 
-import { SOUNDS } from '../constants/sounds/sounds.js'
+import { SOUNDS } from '../constants/sounds/sounds.js';
 import PreloadScene from './PreloadScene.js';
 
 const MESSAGES = {
     hello: 'Привет! Это игра по системе 5С! Давай сделаем наш офис более эффективным!',
     level2: 'Отлично! Теперь давай расставим нужные предметы по местам! Кликай на коробку, чтобы достать предметы.',
-    level3: 'На рабочем месте порядок! Остальное отнесем на склад!'
-}
+    level3: 'На рабочем месте порядок! Остальное отнесем на склад!',
+};
 
 export default class CustomScene extends Scene {
     constructor(sceneName) {
@@ -82,15 +82,15 @@ export default class CustomScene extends Scene {
         const sidebar = document.getElementById('sidebar');
         const toMenuButton = document.getElementById('toMenuButton');
 
-        skipButton.classList.remove("skipButton--open");
-        modal.classList.remove("helloModal--open");
-        sidebar.classList.remove("sidebar--open");
-        toMenuButton.classList.remove("toMenuButton--open");
+        skipButton.classList.remove('skipButton--open');
+        modal.classList.remove('helloModal--open');
+        sidebar.classList.remove('sidebar--open');
+        toMenuButton.classList.remove('toMenuButton--open');
     }
 
     renderSkipButton(SceneName) {
         const skipButton = document.getElementById('skipButton');
-        skipButton.classList.add("skipButton--open");
+        skipButton.classList.add('skipButton--open');
 
         skipButton.onclick = () => {
             this.scene.start(SceneName);
@@ -105,10 +105,10 @@ export default class CustomScene extends Scene {
 
     renderToMenuButton() {
         const toMenuButton = document.getElementById('toMenuButton');
-        toMenuButton.classList.add("toMenuButton--open");
+        toMenuButton.classList.add('toMenuButton--open');
 
         toMenuButton.onclick = () => {
-            this.cameras.main.fadeOut(3000, 217, 217, 217)
+            this.cameras.main.fadeOut(3000, 217, 217, 217);
             this.scene.start('MenuScene');
             this.removeAllModals();
 
@@ -126,12 +126,12 @@ export default class CustomScene extends Scene {
         const textContainer = document.getElementById('helloModal__text-content');
         textContainer.innerHTML = '';
 
-        const text = document.createElement("p");
+        const text = document.createElement('p');
 
         text.textContent = MESSAGES[message];
 
         textContainer.append(text);
-        modal.classList.add("helloModal--open");
+        modal.classList.add('helloModal--open');
 
         const track = SOUNDS.modalSound;
         const sound = PreloadScene.sounds[track];
@@ -140,34 +140,34 @@ export default class CustomScene extends Scene {
         });
 
         setTimeout(() => {
-            modal.classList.remove("helloModal--open");
+            modal.classList.remove('helloModal--open');
             sound.play();
-        }, 10_000)
+        }, 10_000);
     }
 
     renderSidebar(listOfTasks) {
         const sidebar = document.getElementById('sidebar');
-        sidebar.classList.add("sidebar--open");
+        sidebar.classList.add('sidebar--open');
         sidebar.innerHTML = '';
 
         listOfTasks.forEach((task) => {
-            const taskContainer = document.createElement("div");
-            const titleGroup = document.createElement("div");
-            const triangle = document.createElement("div");
-            const title = document.createElement("h3");
-            const itemList = document.createElement("ul");
+            const taskContainer = document.createElement('div');
+            const titleGroup = document.createElement('div');
+            const triangle = document.createElement('div');
+            const title = document.createElement('h3');
+            const itemList = document.createElement('ul');
 
-            taskContainer.classList.add("sidebar__task");
-            titleGroup.classList.add("sidebar__task-title-group");
-            triangle.classList.add("triangle");
-            title.classList.add("sidebar__task-title");
-            itemList.classList.add("sidebar__task-list", "sidebar__task-list--open");
+            taskContainer.classList.add('sidebar__task');
+            titleGroup.classList.add('sidebar__task-title-group');
+            triangle.classList.add('triangle');
+            title.classList.add('sidebar__task-title');
+            itemList.classList.add('sidebar__task-list', 'sidebar__task-list--open');
 
             title.textContent = task.description;
 
-            titleGroup.addEventListener("click", () => {
-                itemList.classList.toggle("sidebar__task-list--open");
-                triangle.classList.toggle("triangle--close");
+            titleGroup.addEventListener('click', () => {
+                itemList.classList.toggle('sidebar__task-list--open');
+                triangle.classList.toggle('triangle--close');
                 const soundtrack = SOUNDS.click;
                 const music = PreloadScene.sounds[soundtrack];
 
@@ -177,13 +177,13 @@ export default class CustomScene extends Scene {
             });
 
             task.items.forEach((item) => {
-                const listItem = document.createElement("li");
-                listItem.setAttribute("data-id", item.id);
-                listItem.classList.add("sidebar__task-item");
+                const listItem = document.createElement('li');
+                listItem.setAttribute('data-id', item.id);
+                listItem.classList.add('sidebar__task-item');
 
                 if (item.done) {
                     listItem.innerHTML = `<s>${item.description}</s>`;
-                    listItem.classList.add("sidebar__task-item--done");
+                    listItem.classList.add('sidebar__task-item--done');
                 } else {
                     listItem.textContent = item.description;
                 }
@@ -238,7 +238,7 @@ export default class CustomScene extends Scene {
 
         setTimeout(() => {
             foundItem.classList.toggle('sidebar__task-item--remove');
-            foundItem.classList.add("sidebar__task-item--done");
+            foundItem.classList.add('sidebar__task-item--done');
 
             foundItem.remove();
             itemParent.appendChild(newItem);
@@ -259,7 +259,7 @@ export default class CustomScene extends Scene {
         modal.classList.add('levelEndModal--open');
 
         modal.addEventListener('click', () => {
-            this.cameras.main.fadeOut(3000, 217, 217, 217)
+            this.cameras.main.fadeOut(3000, 217, 217, 217);
             this.scene.start(SceneName);
             modal.classList.remove('levelEndModal--open');
 
@@ -269,7 +269,7 @@ export default class CustomScene extends Scene {
             music.play({
                 volume: 0.2,
             });
-        })
+        });
 
         const soundtrack = SOUNDS.success;
         const music = PreloadScene.sounds[soundtrack];
@@ -296,7 +296,7 @@ export default class CustomScene extends Scene {
         if (options) {
             Object.keys(options).forEach((key) => {
                 sprite[key] = options[key];
-            })
+            });
         }
 
         this.sprites = {
@@ -328,7 +328,7 @@ export default class CustomScene extends Scene {
             fontSize: '14px',
             fill: '#fff',
             backgroundColor: '#000',
-            padding: { x: 4, y: 4 }
+            padding: { x: 4, y: 4 },
         }).setOrigin(0.5).setVisible(false).setDepth(15);
 
         zone.on('pointerover', () => {
@@ -361,7 +361,7 @@ export default class CustomScene extends Scene {
             fontSize: '14px',
             fill: '#fff',
             backgroundColor: '#000',
-            padding: { x: 4, y: 4 }
+            padding: { x: 4, y: 4 },
         }).setOrigin(0.5).setVisible(false).setDepth(5);
 
         zone.on('pointerover', () => {
@@ -462,7 +462,7 @@ export default class CustomScene extends Scene {
         if (options) {
             Object.keys(options).forEach((key) => {
                 sprite[key] = options[key];
-            })
+            });
         }
 
         sprite.isNew = true;
@@ -487,7 +487,7 @@ export default class CustomScene extends Scene {
                     ease: 'Cubic.easeInOut',
                     duration: 1000,
                 });
-            }
+            },
         });
 
         return sprite;

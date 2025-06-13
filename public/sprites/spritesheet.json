@@ -1,608 +1,135 @@
 {
-	"textures": [
-		{
-			"image": "spritesheet-0.png",
-			"format": "RGBA8888",
-			"size": {
-				"w": 1003,
-				"h": 552
-			},
-			"scale": 1,
-			"frames": [
-				{
-					"filename": "pen.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 217,
-						"h": 27
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 217,
-						"h": 27
-					},
-					"frame": {
-						"x": 0,
-						"y": 0,
-						"w": 217,
-						"h": 27
-					}
-				},
-				{
-					"filename": "screwdriver.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 170,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 170,
-						"h": 28
-					},
-					"frame": {
-						"x": 217,
-						"y": 0,
-						"w": 170,
-						"h": 28
-					}
-				},
-				{
-					"filename": "brokenRuler.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 150,
-						"h": 43
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 150,
-						"h": 43
-					},
-					"frame": {
-						"x": 387,
-						"y": 0,
-						"w": 150,
-						"h": 43
-					}
-				},
-				{
-					"filename": "book.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 118,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 118,
-						"h": 65
-					},
-					"frame": {
-						"x": 537,
-						"y": 0,
-						"w": 118,
-						"h": 65
-					}
-				},
-				{
-					"filename": "screwNuts.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 67,
-						"h": 70
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 67,
-						"h": 70
-					},
-					"frame": {
-						"x": 655,
-						"y": 0,
-						"w": 67,
-						"h": 70
-					}
-				},
-				{
-					"filename": "appleCore.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 63,
-						"h": 75
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 63,
-						"h": 75
-					},
-					"frame": {
-						"x": 722,
-						"y": 0,
-						"w": 63,
-						"h": 75
-					}
-				},
-				{
-					"filename": "korkunovCandies.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 157,
-						"h": 77
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 157,
-						"h": 77
-					},
-					"frame": {
-						"x": 785,
-						"y": 0,
-						"w": 157,
-						"h": 77
-					}
-				},
-				{
-					"filename": "notebook.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 124,
-						"h": 78
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 124,
-						"h": 78
-					},
-					"frame": {
-						"x": 0,
-						"y": 77,
-						"w": 124,
-						"h": 78
-					}
-				},
-				{
-					"filename": "rubikCube.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 82,
-						"h": 79
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 82,
-						"h": 79
-					},
-					"frame": {
-						"x": 124,
-						"y": 77,
-						"w": 82,
-						"h": 79
-					}
-				},
-				{
-					"filename": "medicalMask.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 201,
-						"h": 81
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 201,
-						"h": 81
-					},
-					"frame": {
-						"x": 206,
-						"y": 77,
-						"w": 201,
-						"h": 81
-					}
-				},
-				{
-					"filename": "bill .png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 69,
-						"h": 82
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 69,
-						"h": 82
-					},
-					"frame": {
-						"x": 407,
-						"y": 77,
-						"w": 69,
-						"h": 82
-					}
-				},
-				{
-					"filename": "paperСup.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 65,
-						"h": 94
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 65,
-						"h": 94
-					},
-					"frame": {
-						"x": 476,
-						"y": 77,
-						"w": 65,
-						"h": 94
-					}
-				},
-				{
-					"filename": "scissor.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 204,
-						"h": 97
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 204,
-						"h": 97
-					},
-					"frame": {
-						"x": 541,
-						"y": 77,
-						"w": 204,
-						"h": 97
-					}
-				},
-				{
-					"filename": "mug.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 108,
-						"h": 103
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 108,
-						"h": 103
-					},
-					"frame": {
-						"x": 745,
-						"y": 77,
-						"w": 108,
-						"h": 103
-					}
-				},
-				{
-					"filename": "calculator.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 150,
-						"h": 108
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 150,
-						"h": 108
-					},
-					"frame": {
-						"x": 853,
-						"y": 77,
-						"w": 150,
-						"h": 108
-					}
-				},
-				{
-					"filename": "computerMouse.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 137,
-						"h": 109
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 137,
-						"h": 109
-					},
-					"frame": {
-						"x": 0,
-						"y": 185,
-						"w": 137,
-						"h": 109
-					}
-				},
-				{
-					"filename": "glass.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 68,
-						"h": 113
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 68,
-						"h": 113
-					},
-					"frame": {
-						"x": 137,
-						"y": 185,
-						"w": 68,
-						"h": 113
-					}
-				},
-				{
-					"filename": "cable.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 103,
-						"h": 116
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 103,
-						"h": 116
-					},
-					"frame": {
-						"x": 205,
-						"y": 185,
-						"w": 103,
-						"h": 116
-					}
-				},
-				{
-					"filename": "stackOfBooks.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 123,
-						"h": 118
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 123,
-						"h": 118
-					},
-					"frame": {
-						"x": 308,
-						"y": 185,
-						"w": 123,
-						"h": 118
-					}
-				},
-				{
-					"filename": "penStand.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 83,
-						"h": 125
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 83,
-						"h": 125
-					},
-					"frame": {
-						"x": 431,
-						"y": 185,
-						"w": 83,
-						"h": 125
-					}
-				},
-				{
-					"filename": "paperBag.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 93,
-						"h": 132
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 93,
-						"h": 132
-					},
-					"frame": {
-						"x": 514,
-						"y": 185,
-						"w": 93,
-						"h": 132
-					}
-				},
-				{
-					"filename": "vitamins.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 76,
-						"h": 132
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 76,
-						"h": 132
-					},
-					"frame": {
-						"x": 607,
-						"y": 185,
-						"w": 76,
-						"h": 132
-					}
-				},
-				{
-					"filename": "smartphone.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 109,
-						"h": 140
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 109,
-						"h": 140
-					},
-					"frame": {
-						"x": 683,
-						"y": 185,
-						"w": 109,
-						"h": 140
-					}
-				},
-				{
-					"filename": "stackOfPaper.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 186,
-						"h": 146
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 186,
-						"h": 146
-					},
-					"frame": {
-						"x": 792,
-						"y": 185,
-						"w": 186,
-						"h": 146
-					}
-				},
-				{
-					"filename": "crumpledPaper.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 186,
-						"h": 151
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 186,
-						"h": 151
-					},
-					"frame": {
-						"x": 0,
-						"y": 331,
-						"w": 186,
-						"h": 151
-					}
-				},
-				{
-					"filename": "trashCan.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 128,
-						"h": 154
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 128,
-						"h": 154
-					},
-					"frame": {
-						"x": 186,
-						"y": 331,
-						"w": 128,
-						"h": 154
-					}
-				},
-				{
-					"filename": "box.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 313,
-						"h": 193
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 313,
-						"h": 193
-					},
-					"frame": {
-						"x": 314,
-						"y": 331,
-						"w": 313,
-						"h": 193
-					}
-				},
-				{
-					"filename": "laptop.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 296,
-						"h": 221
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 296,
-						"h": 221
-					},
-					"frame": {
-						"x": 627,
-						"y": 331,
-						"w": 296,
-						"h": 221
-					}
-				}
-			]
-		}
-	],
-	"meta": {
-		"app": "https://www.codeandweb.com/texturepacker",
-		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:f901e2aec4441f902e749b2abb9bc27f:50b1373e386d0d729a88870b405105da:8c6dd33834234b12e12b365e160caba2$"
-	}
+  "textures": [
+    {
+      "image": "spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 891,
+        "h": 582
+      },
+      "scale": 1,
+      "frames": [
+        {
+          "filename": "boxNeeded.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 300, "h": 289 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 300, "h": 289 },
+          "frame": { "x": 1, "y": 1, "w": 300, "h": 289 }
+        },
+        {
+          "filename": "boxRemove.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 300, "h": 289 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 300, "h": 289 },
+          "frame": { "x": 1, "y": 292, "w": 300, "h": 289 }
+        },
+        {
+          "filename": "boxRequired.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 300, "h": 289 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 300, "h": 289 },
+          "frame": { "x": 303, "y": 1, "w": 300, "h": 289 }
+        },
+        {
+          "filename": "greenCube.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 78, "h": 90 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 78, "h": 90 },
+          "frame": { "x": 605, "y": 1, "w": 78, "h": 90 }
+        },
+        {
+          "filename": "greenEllipse.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 74, "h": 74 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 74, "h": 74 },
+          "frame": { "x": 685, "y": 1, "w": 74, "h": 74 }
+        },
+        {
+          "filename": "greenEllipseZone.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 129, "h": 76 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 129, "h": 76 },
+          "frame": { "x": 761, "y": 1, "w": 129, "h": 76 }
+        },
+        {
+          "filename": "greenPyramid.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 94, "h": 114 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 114 },
+          "frame": { "x": 685, "y": 79, "w": 94, "h": 114 }
+        },
+        {
+          "filename": "redCube.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 78, "h": 90 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 78, "h": 90 },
+          "frame": { "x": 781, "y": 79, "w": 78, "h": 90 }
+        },
+        {
+          "filename": "redCubeZone.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 52, "h": 30 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 52, "h": 30 },
+          "frame": { "x": 605, "y": 171, "w": 52, "h": 30 }
+        },
+        {
+          "filename": "redEllipse.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 74, "h": 74 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 74, "h": 74 },
+          "frame": { "x": 781, "y": 171, "w": 74, "h": 74 }
+        },
+        {
+          "filename": "redPyramid.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 94, "h": 114 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 114 },
+          "frame": { "x": 605, "y": 247, "w": 94, "h": 114 }
+        },
+        {
+          "filename": "yellowCube.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 78, "h": 90 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 78, "h": 90 },
+          "frame": { "x": 701, "y": 247, "w": 78, "h": 90 }
+        },
+        {
+          "filename": "yellowEllipse.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 74, "h": 74 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 74, "h": 74 },
+          "frame": { "x": 781, "y": 247, "w": 74, "h": 74 }
+        },
+        {
+          "filename": "yellowPyramid.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 94, "h": 114 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 94, "h": 114 },
+          "frame": { "x": 303, "y": 323, "w": 94, "h": 114 }
+        },
+        {
+          "filename": "yellowPyramidZone.png",
+          "rotated": false,
+          "trimmed": false,
+          "sourceSize": { "w": 74, "h": 43 },
+          "spriteSourceSize": { "x": 0, "y": 0, "w": 74, "h": 43 },
+          "frame": { "x": 399, "y": 323, "w": 74, "h": 43 }
+        }
+      ]
+    }
+  ]
 }
