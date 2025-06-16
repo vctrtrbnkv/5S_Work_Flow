@@ -97,6 +97,7 @@ button {
 
   outline: none;
   border: none;
+  border-radius: 16px;
   cursor: pointer;
 
   transition: background-color 0.3s;
@@ -261,7 +262,7 @@ button {
 }
 
 .sidebar__task {
-  padding: 16px;
+  padding: 16px 16px 0 16px;
   min-width: fit-content;
 }
 
@@ -272,7 +273,8 @@ button {
 
   padding: 12px;
 
-  background-color: #d9d9d9;
+  background-color: #D9D9D9;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -490,6 +492,18 @@ button {
   font-size: 24px;
 }
 
+#stopwatch {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  height: 44px;
+  padding: 8px;
+  text-align: center;
+  font-size: 24px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D9D9D9;
+}
+
 @media (max-width: 1024px) {
   .menu__title {
     padding-bottom: 40px;
@@ -542,7 +556,6 @@ button {
   .sidebar {
     width: 100%;
     height: 300px;
-    border-top: #ffffff solid 12px;
   }
 
   .helloModal {
@@ -619,4 +632,98 @@ button {
     width: 200px;
     right: -225px;
   }
+}
+
+.scores-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, width 0s 0.3s, height 0s 0.3s;
+}
+
+.scores-sidebar--visible {
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, width 0s, height 0s;
+}
+
+.scores-table {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid #9397DA;
+  margin-bottom: 32px;
+}
+
+.scores-sidebar__title {
+  color: #1E1E2E;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.scores-table__header {
+  color: #ffffff;
+  background-color: #9397DA;
+  display: flex;
+  padding: 16px;
+  border-radius: 8px 8px 0 0;
+}
+
+.scores-table__row {
+  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #2A2D3E;
+}
+
+.scores-table__row:last-child {
+  border-bottom: none;
+}
+
+.scores-table__cell {
+  flex: 1;
+  color: #000000;
+  font-size: 18px;
+  text-align: center;
+}
+
+.scores-table__header .scores-table__cell {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.scores-sidebar__button {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  background-color: #9397DA;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.scores-sidebar__button:hover {
+  background-color: #A5A9E2;
 }

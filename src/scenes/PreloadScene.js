@@ -22,7 +22,7 @@ export default class PreloadScene extends CustomScene {
         const progressBar = this.add.graphics();
         const progressBox = this.add.graphics();
         progressBox.fillStyle(0xB3B5E6, 0.8);
-        progressBox.fillRect(width / 2 - 160, height / 2, 320, 50);
+        progressBox.fillRoundedRect(width / 2 - 160, height / 2, 320, 50, 16);
       
         // Loading bar
         const loadingBar = this.add.graphics();
@@ -31,7 +31,7 @@ export default class PreloadScene extends CustomScene {
         this.load.on('progress', (value) => {
             loadingBar.clear();
             loadingBar.fillStyle(0xffffff, 1);
-            loadingBar.fillRect(width / 2 - 150, height / 2 + 10, 300 * value, 30);
+            loadingBar.fillRoundedRect(width / 2 - 150, height / 2 + 10, 300 * value, 30, 12);
         });
       
         this.load.on('complete', () => {

@@ -21,13 +21,41 @@
         <button id="startButton" class="menu__button menu__button--secondary">
           Новая игра
         </button>
-        <button class="menu__button menu__button--tertiary" disabled>
+        <button id="aboutButton" class="menu__button menu__button--tertiary" onclick="window.location.href='about.html'">
           Об игре
         </button>
       </div>
     </aside>
 
-    <aside id="sidebar" class="sidebar"></aside>
+    <aside id="sidebar" class="sidebar">
+      <div id="stopwatch"></div>
+      <div id="levelTasks"></div>
+    </aside>
+
+    <aside id="scores-sidebar" class="scores-sidebar">
+      <div class="scores-sidebar__title">Результаты</div>
+      <div class="scores-table">
+        <div class="scores-table__header">
+          <div class="scores-table__cell">Уровень</div>
+          <div class="scores-table__cell">Время</div>
+        </div>
+        <div class="scores-table__body">
+          <div class="scores-table__row">
+            <div class="scores-table__cell">Уровень 1</div>
+            <div class="scores-table__cell" id="level1-time">--:--</div>
+          </div>
+          <div class="scores-table__row">
+            <div class="scores-table__cell">Уровень 2</div>
+            <div class="scores-table__cell" id="level2-time">--:--</div>
+          </div>
+          <div class="scores-table__row">
+            <div class="scores-table__cell">Уровень 3</div>
+            <div class="scores-table__cell" id="level3-time">--:--</div>
+          </div>
+        </div>
+      </div>
+      <button id="return-to-menu" class="scores-sidebar__button">Вернуться в меню</button>
+    </aside>
 
     <aside id="helloModal" class="helloModal">
       <div id="helloModal__text-content" class="helloModal__text-content"></div>

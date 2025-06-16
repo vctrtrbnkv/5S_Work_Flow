@@ -17,6 +17,14 @@ export default class CustomScene extends Scene {
         this.isDragging = false;
 
         this.zones = {};
+
+        this.stopwatchId = null;
+        this.seconds = 0;
+        this.minutes = 0;
+        this.isGameOver = false;
+        
+        // Extract level number from scene name (e.g., "level1" -> 1)
+        this.level = parseInt(sceneName.replace('level', '')) || 1;
     }
 
     saveScene(sceneKey) {
@@ -29,6 +37,21 @@ export default class CustomScene extends Scene {
 
     removeLastSceneInLocalStorage() {
         localStorage.removeItem('lastScene');
+    }
+
+    saveLevelTime(level, time) {
+        const times = JSON.parse(localStorage.getItem('levelTimes') || '{}');
+        times[level] = time;
+        localStorage.setItem('levelTimes', JSON.stringify(times));
+    }
+
+    getLevelTime(level) {
+        const times = JSON.parse(localStorage.getItem('levelTimes') || '{}');
+        return times[level] || null;
+    }
+
+    clearLevelTimes() {
+        localStorage.removeItem('levelTimes');
     }
 
     renderMenu() {
@@ -88,11 +111,52 @@ export default class CustomScene extends Scene {
         toMenuButton.classList.remove('toMenuButton--open');
     }
 
+    showScoresSidebar() {
+        const scoresSidebar = document.querySelector('.scores-sidebar');
+        const scoresTable = document.querySelector('.scores-table__body');
+        const returnButton = document.querySelector('.scores-sidebar__button');
+
+        // Очищаем предыдущие результаты
+        scoresTable.innerHTML = '';
+
+        // Получаем все сохраненные времена
+        const times = JSON.parse(localStorage.getItem('levelTimes') || '{}');
+
+        // Сортируем уровни по номеру
+        const sortedLevels = Object.keys(times).sort((a, b) => parseInt(a) - parseInt(b));
+
+        // Добавляем строки в таблицу
+        sortedLevels.forEach(level => {
+            const row = document.createElement('div');
+            row.className = 'scores-table__row';
+            row.innerHTML = `
+                <div class="scores-table__cell">Уровень ${level}</div>
+                <div class="scores-table__cell">${times[level]}</div>
+            `;
+            scoresTable.appendChild(row);
+        });
+
+        // Показываем сайдбар
+        scoresSidebar.classList.add('scores-sidebar--visible');
+
+        // Добавляем обработчик для кнопки возврата
+        returnButton.onclick = () => {
+            scoresSidebar.classList.remove('scores-sidebar--visible');
+            this.clearLevelTimes();
+            this.scene.start('MenuScene');
+        };
+    }
+
     renderSkipButton(SceneName) {
         const skipButton = document.getElementById('skipButton');
         skipButton.classList.add('skipButton--open');
 
         skipButton.onclick = () => {
+            if (this.stopwatchId) {
+                clearInterval(this.stopwatchId);
+                this.stopwatchId = null;
+            }
+
             this.scene.start(SceneName);
             const soundtrack = SOUNDS.click;
             const music = PreloadScene.sounds[soundtrack];
@@ -108,6 +172,11 @@ export default class CustomScene extends Scene {
         toMenuButton.classList.add('toMenuButton--open');
 
         toMenuButton.onclick = () => {
+            if (this.stopwatchId) {
+                clearInterval(this.stopwatchId);
+                this.stopwatchId = null;
+            }
+
             this.cameras.main.fadeOut(3000, 217, 217, 217);
             this.scene.start('MenuScene');
             this.removeAllModals();
@@ -127,10 +196,9 @@ export default class CustomScene extends Scene {
         textContainer.innerHTML = '';
 
         const text = document.createElement('p');
-
         text.textContent = MESSAGES[message];
-
         textContainer.append(text);
+
         modal.classList.add('helloModal--open');
 
         const track = SOUNDS.modalSound;
@@ -139,16 +207,37 @@ export default class CustomScene extends Scene {
             volume: 0.2,
         });
 
-        setTimeout(() => {
+        modal.onclick = () => {
             modal.classList.remove('helloModal--open');
             sound.play();
+        };
+
+        setTimeout(() => {
+            if (modal.classList.contains('helloModal--open')) {
+                modal.classList.remove('helloModal--open');
+                sound.play();
+            }
         }, 10_000);
+    }
+
+    updateStopwatch() {
+        const stopwatch = document.getElementById('stopwatch');
+        
+        this.seconds++;
+        if (this.seconds === 60) {
+            this.minutes++;
+            this.seconds = 0;
+        }
+
+        stopwatch.textContent = `${this.minutes.toString().padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
     }
 
     renderSidebar(listOfTasks) {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.add('sidebar--open');
-        sidebar.innerHTML = '';
+
+        const levelTasks = document.getElementById('levelTasks');
+        levelTasks.innerHTML = '';
 
         listOfTasks.forEach((task) => {
             const taskContainer = document.createElement('div');
@@ -177,16 +266,13 @@ export default class CustomScene extends Scene {
             });
 
             task.items.forEach((item) => {
+                // Сбрасываем состояние задачи при каждом запуске
+                item.done = false;
+                
                 const listItem = document.createElement('li');
                 listItem.setAttribute('data-id', item.id);
                 listItem.classList.add('sidebar__task-item');
-
-                if (item.done) {
-                    listItem.innerHTML = `<s>${item.description}</s>`;
-                    listItem.classList.add('sidebar__task-item--done');
-                } else {
-                    listItem.textContent = item.description;
-                }
+                listItem.textContent = item.description;
 
                 itemList.appendChild(listItem);
             });
@@ -196,8 +282,22 @@ export default class CustomScene extends Scene {
 
             taskContainer.appendChild(titleGroup);
             taskContainer.appendChild(itemList);
-            sidebar.appendChild(taskContainer);
+            levelTasks.appendChild(taskContainer);
         });
+
+        const stopwatch = document.getElementById('stopwatch');
+        stopwatch.innerHTML = '';
+
+        if (this.stopwatchId) {
+            clearInterval(this.stopwatchId);
+        }
+
+        this.seconds = 0;
+        this.minutes = 0;
+
+        this.stopwatchId = setInterval(() => {
+            this.updateStopwatch();
+        }, 1000);
     }
 
     markItemAsDone(itemName, sidebar, listOfTasks) {
@@ -247,16 +347,31 @@ export default class CustomScene extends Scene {
 
     endOfGameCheck(listOfTasks, SceneName) {
         const allItems = listOfTasks.flatMap((task) => task.items);
-        const doneItems = allItems.filter((item) => item.done);
+        const isAllDone = allItems.every((item) => item.done);
 
-        if (doneItems.length === allItems.length) {
-            this.renderEndLevelModal(SceneName);
+        if (isAllDone) {
+            if (this.stopwatchId) {
+                clearInterval(this.stopwatchId);
+                this.stopwatchId = null;
+            }
+
+            const finalTime = `${this.minutes.toString().padStart(2, '0')}:${this.seconds.toString().padStart(2, '0')}`;
+            const timeElement = document.getElementById(`level${this.level}-time`);
+            if (timeElement) {
+                timeElement.textContent = finalTime;
+            }
+
+            this.saveLevelTime(this.level, finalTime);
+            this.renderEndLevelModal(SceneName, finalTime);
         }
     }
 
-    renderEndLevelModal(SceneName) {
+    renderEndLevelModal(SceneName, finalTime) {
         const modal = document.getElementById('levelEndModal');
         modal.classList.add('levelEndModal--open');
+
+        const modalText = document.querySelector('.levelEndModal__text');
+        modalText.textContent = `Уровень пройден! Время: ${finalTime}`;
 
         modal.addEventListener('click', () => {
             this.cameras.main.fadeOut(3000, 217, 217, 217);
@@ -507,5 +622,9 @@ export default class CustomScene extends Scene {
         };
 
         return sound;
+    }
+
+    create() {
+        this.setLevelNumber();
     }
 }
