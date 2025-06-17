@@ -5,6 +5,12 @@ export default defineConfig({
     build: {
         outDir: 'dist',
         chunkSizeWarningLimit: 1600,
+        rollupOptions: {
+            input: {
+                main: './index.html',
+                about: './about.html',
+            },
+        },
     },
     resolve: {
         alias: {

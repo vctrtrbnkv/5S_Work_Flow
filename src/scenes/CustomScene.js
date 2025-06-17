@@ -23,7 +23,6 @@ export default class CustomScene extends Scene {
         this.minutes = 0;
         this.isGameOver = false;
         
-        // Extract level number from scene name (e.g., "level1" -> 1)
         this.level = parseInt(sceneName.replace('level', '')) || 1;
     }
 
@@ -116,16 +115,12 @@ export default class CustomScene extends Scene {
         const scoresTable = document.querySelector('.scores-table__body');
         const returnButton = document.querySelector('.scores-sidebar__button');
 
-        // Очищаем предыдущие результаты
         scoresTable.innerHTML = '';
 
-        // Получаем все сохраненные времена
         const times = JSON.parse(localStorage.getItem('levelTimes') || '{}');
 
-        // Сортируем уровни по номеру
         const sortedLevels = Object.keys(times).sort((a, b) => parseInt(a) - parseInt(b));
 
-        // Добавляем строки в таблицу
         sortedLevels.forEach(level => {
             const row = document.createElement('div');
             row.className = 'scores-table__row';
@@ -136,14 +131,12 @@ export default class CustomScene extends Scene {
             scoresTable.appendChild(row);
         });
 
-        // Показываем сайдбар
         scoresSidebar.classList.add('scores-sidebar--visible');
 
-        // Добавляем обработчик для кнопки возврата
         returnButton.onclick = () => {
             scoresSidebar.classList.remove('scores-sidebar--visible');
             this.clearLevelTimes();
-            this.scene.start('MenuScene');
+            window.location.reload();
         };
     }
 
@@ -178,8 +171,6 @@ export default class CustomScene extends Scene {
             }
 
             this.cameras.main.fadeOut(3000, 217, 217, 217);
-            this.scene.start('MenuScene');
-            this.removeAllModals();
 
             const soundtrack = SOUNDS.click;
             const music = PreloadScene.sounds[soundtrack];
@@ -187,6 +178,7 @@ export default class CustomScene extends Scene {
             music.play({
                 volume: 0.2,
             });
+            window.location.reload();
         };
     }
 
@@ -266,7 +258,6 @@ export default class CustomScene extends Scene {
             });
 
             task.items.forEach((item) => {
-                // Сбрасываем состояние задачи при каждом запуске
                 item.done = false;
                 
                 const listItem = document.createElement('li');

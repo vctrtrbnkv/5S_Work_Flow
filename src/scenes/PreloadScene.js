@@ -8,26 +8,21 @@ export default class PreloadScene extends CustomScene {
     }
 
     preload() {
-        // Create loading bar
         const width = this.cameras.main.width;
         const height = this.cameras.main.height;
       
-        // Loading text
         const loadingText = this.add.text(width / 2, height / 2 - 50, 'Загрузка...', {
             font: '30px Arial',
             fill: '#ffffff',
         }).setOrigin(0.5);
       
-        // Progress bar background
         const progressBar = this.add.graphics();
         const progressBox = this.add.graphics();
         progressBox.fillStyle(0xB3B5E6, 0.8);
         progressBox.fillRoundedRect(width / 2 - 160, height / 2, 320, 50, 16);
       
-        // Loading bar
         const loadingBar = this.add.graphics();
       
-        // Loading progress events
         this.load.on('progress', (value) => {
             loadingBar.clear();
             loadingBar.fillStyle(0xffffff, 1);

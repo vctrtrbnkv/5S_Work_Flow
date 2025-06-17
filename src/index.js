@@ -12,7 +12,7 @@ const config = {
     width: gameConfig.width,
     height: gameConfig.height,
     scale: {
-        mode: Phaser.Scale.FIT, // или RESIZE
+        mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
     },
     backgroundColor: gameConfig.backgroundColor,
