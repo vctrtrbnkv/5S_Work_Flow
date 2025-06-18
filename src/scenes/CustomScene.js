@@ -53,33 +53,53 @@ export default class CustomScene extends Scene {
         localStorage.removeItem('levelTimes');
     }
 
+    playSound(soundName) {
+        const soundsEnabled = localStorage.getItem('soundsEnabled') === 'true';
+        if (soundsEnabled) {
+            const soundtrack = SOUNDS[soundName];
+            const sound = PreloadScene.sounds[soundtrack];
+            if (sound) {
+                sound.play({
+                    volume: 0.2,
+                });
+            }
+        }
+    }
+
+    playRandomSound(soundGroup) {
+        const soundsEnabled = localStorage.getItem('soundsEnabled') === 'true';
+        const randomSoundName = Phaser.Utils.Array.GetRandom(soundGroup);
+        if (soundsEnabled) {
+            const sound = PreloadScene.sounds[randomSoundName];
+            if (sound) {
+                sound.play();
+            }
+        }
+    }
+
     renderMenu() {
         const menu = document.getElementById('menu');
         const menuButtons = document.getElementById('menuButtons');
         const startButton = document.getElementById('startButton');
+        const settingsButton = document.getElementById('settingsButton');
 
         const lastScene = this.loadLastScene();
 
         let continueButton = document.getElementById('continueButton');
-
-        const soundtrack = SOUNDS.click;
-        const music = PreloadScene.sounds[soundtrack];
 
         if (lastScene) {
             if (!continueButton) {
                 continueButton = document.createElement('button');
                 continueButton.id = 'continueButton';
                 continueButton.innerText = 'Продолжить';
-                continueButton.classList.add('menu__button', 'menu__button--primary');
+                continueButton.classList.add('menu__button', 'menu__button--quaternary');
                 menuButtons.prepend(continueButton);
             }
 
             continueButton.addEventListener('click', () => {
                 this.scene.start(lastScene);
                 menu.style.display = 'none';
-                music.play({
-                    volume: 0.2,
-                });
+                this.playSound('click');
             });
         } else {
             if (continueButton) {
@@ -90,24 +110,78 @@ export default class CustomScene extends Scene {
         startButton.addEventListener('click', () => {
             this.scene.start('level1');
             menu.style.display = 'none';
-            music.play({
-                volume: 0.2,
-            });
+            this.playSound('click');
+        });
+
+        settingsButton.addEventListener('click', () => {
+            this.showSettingsSidebar();
+            this.playSound('click');
         });
 
         menu.style.display = 'block';
     }
 
+    showSettingsSidebar() {
+        const settingsSidebar = document.getElementById('settings-sidebar');
+        const closeButton = settingsSidebar.querySelector('.settings-sidebar__close-button');
+        const musicToggle = settingsSidebar.querySelector('#musicToggle');
+        const soundsToggle = settingsSidebar.querySelector('#soundsToggle');
+
+        const savedMusicState = localStorage.getItem('musicEnabled');
+        const savedSoundsState = localStorage.getItem('soundsEnabled');
+
+        if (savedMusicState !== false) {
+            musicToggle.checked = savedMusicState === 'true';
+            const backgroundMusic = PreloadScene.sounds[SOUNDS.backgroundMusic];
+            if (musicToggle.checked) {
+                if (!backgroundMusic.isPlaying) {
+                    backgroundMusic.play({
+                        loop: true,
+                        volume: 0.2,
+                    });
+                }
+            } else {
+                backgroundMusic.stop();
+            }
+        }
+
+        if (savedSoundsState !== false) {
+            soundsToggle.checked = savedSoundsState === 'true';
+        }
+
+        settingsSidebar.classList.add('settings-sidebar--visible');
+
+        closeButton.onclick = () => {
+            settingsSidebar.classList.remove('settings-sidebar--visible');
+            this.playSound('click');
+        };
+
+        musicToggle.onchange = (e) => {
+            const backgroundMusic = PreloadScene.sounds[SOUNDS.backgroundMusic];
+            if (e.target.checked) {
+                if (!backgroundMusic.isPlaying) {
+                    backgroundMusic.play({
+                        loop: true,
+                        volume: 0.2,
+                    });
+                }
+            } else {
+                backgroundMusic.stop();
+            }
+            localStorage.setItem('musicEnabled', e.target.checked);
+        };
+
+        soundsToggle.onchange = (e) => {
+            localStorage.setItem('soundsEnabled', e.target.checked);
+        };
+    }
+
     removeAllModals() {
-        const skipButton = document.getElementById('skipButton');
         const modal = document.getElementById('helloModal');
         const sidebar = document.getElementById('sidebar');
-        const toMenuButton = document.getElementById('toMenuButton');
 
-        skipButton.classList.remove('skipButton--open');
         modal.classList.remove('helloModal--open');
         sidebar.classList.remove('sidebar--open');
-        toMenuButton.classList.remove('toMenuButton--open');
     }
 
     showScoresSidebar() {
@@ -140,10 +214,8 @@ export default class CustomScene extends Scene {
         };
     }
 
-    renderSkipButton(SceneName) {
+    handlerSkipButton(SceneName) {
         const skipButton = document.getElementById('skipButton');
-        skipButton.classList.add('skipButton--open');
-
         skipButton.onclick = () => {
             if (this.stopwatchId) {
                 clearInterval(this.stopwatchId);
@@ -151,19 +223,12 @@ export default class CustomScene extends Scene {
             }
 
             this.scene.start(SceneName);
-            const soundtrack = SOUNDS.click;
-            const music = PreloadScene.sounds[soundtrack];
-
-            music.play({
-                volume: 0.2,
-            });
+            this.playSound('click');
         };
     }
 
-    renderToMenuButton() {
+    handlerToMenuButton() {
         const toMenuButton = document.getElementById('toMenuButton');
-        toMenuButton.classList.add('toMenuButton--open');
-
         toMenuButton.onclick = () => {
             if (this.stopwatchId) {
                 clearInterval(this.stopwatchId);
@@ -171,13 +236,7 @@ export default class CustomScene extends Scene {
             }
 
             this.cameras.main.fadeOut(3000, 217, 217, 217);
-
-            const soundtrack = SOUNDS.click;
-            const music = PreloadScene.sounds[soundtrack];
-
-            music.play({
-                volume: 0.2,
-            });
+            this.playSound('click');
             window.location.reload();
         };
     }
@@ -193,21 +252,16 @@ export default class CustomScene extends Scene {
 
         modal.classList.add('helloModal--open');
 
-        const track = SOUNDS.modalSound;
-        const sound = PreloadScene.sounds[track];
-        sound.play({
-            volume: 0.2,
-        });
+        this.playSound('modalSound');
 
         modal.onclick = () => {
             modal.classList.remove('helloModal--open');
-            sound.play();
-        };
+            this.playSound('modalSound');        };
 
         setTimeout(() => {
             if (modal.classList.contains('helloModal--open')) {
                 modal.classList.remove('helloModal--open');
-                sound.play();
+                this.playSound('modalSound');            
             }
         }, 10_000);
     }
@@ -249,12 +303,7 @@ export default class CustomScene extends Scene {
             titleGroup.addEventListener('click', () => {
                 itemList.classList.toggle('sidebar__task-list--open');
                 triangle.classList.toggle('triangle--close');
-                const soundtrack = SOUNDS.click;
-                const music = PreloadScene.sounds[soundtrack];
-
-                music.play({
-                    volume: 0.2,
-                });
+                this.playSound('click');
             });
 
             task.items.forEach((item) => {
@@ -275,6 +324,8 @@ export default class CustomScene extends Scene {
             taskContainer.appendChild(itemList);
             levelTasks.appendChild(taskContainer);
         });
+
+        this.renderBurgerMenu();
 
         const stopwatch = document.getElementById('stopwatch');
         stopwatch.innerHTML = '';
@@ -313,14 +364,7 @@ export default class CustomScene extends Scene {
 
         foundItem.innerHTML = `<s>${foundItem.innerHTML}</s>`;
 
-        let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.pencilCheckSounds);
-        let sound = PreloadScene.sounds[randomSoundName];
-
-        if (sound) {
-            sound.play({
-                volume: 0.4,
-            });
-        }
+        this.playRandomSound(SOUNDS.pencilCheckSounds);
 
         foundItem.classList.toggle('sidebar__task-item--remove');
         foundItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -369,20 +413,10 @@ export default class CustomScene extends Scene {
             this.scene.start(SceneName);
             modal.classList.remove('levelEndModal--open');
 
-            const soundtrack = SOUNDS.click;
-            const music = PreloadScene.sounds[soundtrack];
-
-            music.play({
-                volume: 0.2,
-            });
+            this.playSound('click');
         });
 
-        const soundtrack = SOUNDS.success;
-        const music = PreloadScene.sounds[soundtrack];
-
-        music.play({
-            volume: 0.2,
-        });
+        this.playSound('success');
     }
 
     createSprite(obj) {
@@ -497,13 +531,7 @@ export default class CustomScene extends Scene {
                 this.setData('draggable', true);
                 this.setDepth(10);
 
-
-                let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.dragSounds);
-                let sound = PreloadScene.sounds[randomSoundName];
-
-                if (sound) {
-                    sound.play();
-                }
+                sceneContext.playRandomSound(SOUNDS.dragSounds);
             }
         });
 
@@ -522,12 +550,7 @@ export default class CustomScene extends Scene {
                 this.setData('draggable', false);
             }
 
-            let randomSoundName = Phaser.Utils.Array.GetRandom(SOUNDS.dropSounds);
-            let sound = PreloadScene.sounds[randomSoundName];
-
-            if (sound) {
-                sound.play();
-            }
+            sceneContext.playRandomSound(SOUNDS.dropSounds);
         });
 
         sprite.on('pointerdown', () => {
@@ -613,6 +636,27 @@ export default class CustomScene extends Scene {
         };
 
         return sound;
+    }
+
+    renderBurgerMenu() {
+        const burgerMenu = document.getElementById('burgerMenu');
+        const sidebarButtons = document.querySelector('.sidebar__buttons');
+
+        burgerMenu.addEventListener('click', () => {
+            this.playSound('click');
+            requestAnimationFrame(() => {
+                burgerMenu.classList.toggle('burger-menu--active');
+                sidebarButtons.classList.toggle('sidebar__buttons--visible');
+            });
+        });
+    }
+
+    handlerSettingsButton() {
+        const settingsButton = document.getElementById('sidebarSettingsButton');
+        settingsButton.onclick = () => {
+            this.showSettingsSidebar();
+            this.playSound('click');
+        };
     }
 
     create() {

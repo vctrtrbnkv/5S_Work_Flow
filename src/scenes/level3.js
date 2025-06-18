@@ -15,8 +15,9 @@ export default class level3 extends CustomScene {
         this.cameras.main.fadeIn(1000, 217, 217, 217);
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('level3');
-        this.renderSkipButton('GameOverScene');
-        this.renderToMenuButton();
+        this.handlerSkipButton('GameOverScene');
+        this.handlerToMenuButton();
+        this.handlerSettingsButton();
 
         this.input.dragDistanceThreshold = 0;
 

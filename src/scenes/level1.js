@@ -16,8 +16,9 @@ export default class level1 extends CustomScene {
         this.removeAllModals();
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('hello');
-        this.renderSkipButton('level2');
-        this.renderToMenuButton();
+        this.handlerSkipButton('level2');
+        this.handlerToMenuButton();
+        this.handlerSettingsButton();
 
         const room = this.add.image(0, 0, 'room').setOrigin(0, 0);
         room.setPosition(10, 10);

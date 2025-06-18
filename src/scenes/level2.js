@@ -15,8 +15,9 @@ export default class level2 extends CustomScene {
         this.cameras.main.fadeIn(1000, 217, 217, 217);
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('level2');
-        this.renderSkipButton('level3');
-        this.renderToMenuButton();
+        this.handlerSkipButton('level3');
+        this.handlerToMenuButton();
+        this.handlerSettingsButton();
 
         this.input.dragDistanceThreshold = 0;
 

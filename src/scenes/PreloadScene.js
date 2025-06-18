@@ -69,11 +69,16 @@ export default class PreloadScene extends CustomScene {
         const allSounds = Object.values(SOUNDS).flatMap((sounds) => sounds);
         allSounds.forEach((sound) => this.createSounds(sound));
 
-        let music;
-        if (!music) {
-            const soundtrack = SOUNDS.backgroundMusic;
-            music = PreloadScene.sounds[soundtrack];
+        const savedMusicState = localStorage.getItem('musicEnabled');
+        const musicToggle = document.querySelector('#musicToggle');
+        
+        if (musicToggle) {
+            musicToggle.checked = savedMusicState === 'true';
+        }
 
+        if (savedMusicState === 'true') {
+            const soundtrack = SOUNDS.backgroundMusic;
+            const music = PreloadScene.sounds[soundtrack];
             music.play({
                 loop: true,
                 volume: 0.2,

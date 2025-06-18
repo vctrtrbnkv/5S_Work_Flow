@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="figuresBig.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <title>5S WORK FLOW</title>
@@ -18,18 +19,60 @@
       <h1 class="menu__title">5S WORK FLOW</h1>
 
       <div id="menuButtons">
-        <button id="startButton" class="menu__button menu__button--secondary">
+        <button id="startButton" class="menu__button menu__button--primary">
           Новая игра
         </button>
-        <button id="aboutButton" class="menu__button menu__button--tertiary" onclick="window.location.href='about.html'">
+        <button id="aboutButton" class="menu__button menu__button--secondary" onclick="window.location.href='about.html'">
           Об игре
+        </button>
+        <button id="settingsButton" class="menu__button menu__button--tertiary">
+          Настройки
         </button>
       </div>
     </aside>
 
     <aside id="sidebar" class="sidebar">
-      <div id="stopwatch"></div>
+      <div class="sidebar__header">
+        <div id="stopwatch"></div>
+        <button id="burgerMenu" class="burger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="sidebar__buttons">
+        <button id="skipButton" class="sidebar__button">Пропустить</button>
+        <button id="toMenuButton" class="sidebar__button">В меню</button>
+        <button id="sidebarSettingsButton" class="sidebar__button">Настройки</button>
+      </div>
       <div id="levelTasks"></div>
+    </aside>
+
+    <aside id="settings-sidebar" class="settings-sidebar">
+      <div class="settings-sidebar__header">
+        <h2 class="settings-sidebar__title">Настройки</h2>
+        <button class="settings-sidebar__close-button">×</button>
+      </div>
+      
+      <div class="settings-sidebar__content">
+        <div class="settings-group">
+          <h3 class="settings-group__title">Звук</h3>
+          <div class="settings-control">
+            <label class="settings-control__label">Фоновая музыка</label>
+            <div class="settings-control__toggle">
+              <input type="checkbox" id="musicToggle" class="settings-control__checkbox" checked="false">
+              <label for="musicToggle" class="settings-control__toggle-label"></label>
+            </div>
+          </div>
+          <div class="settings-control">
+            <label class="settings-control__label">Звуки взаимодействия</label>
+            <div class="settings-control__toggle">
+              <input type="checkbox" id="soundsToggle" class="settings-control__checkbox" checked="false">
+              <label for="soundsToggle" class="settings-control__toggle-label"></label>
+            </div>
+          </div>
+        </div>
+      </div>
     </aside>
 
     <aside id="scores-sidebar" class="scores-sidebar">
@@ -62,10 +105,6 @@
 
       <img class="helloModal__maskot" src="maskot.png" alt="maskot" />
     </aside>
-
-    <button id="skipButton" class="skipButton">Пропустить</button>
-
-    <button id="toMenuButton" class="toMenuButton">В меню</button>
 
     <aside id="levelEndModal" class="levelEndModal">
       <div class="levelEndModal__header">
