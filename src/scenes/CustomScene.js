@@ -55,26 +55,28 @@ export default class CustomScene extends Scene {
 
     playSound(soundName) {
         const soundsEnabled = localStorage.getItem('soundsEnabled') === 'true';
-        if (soundsEnabled) {
-            const soundtrack = SOUNDS[soundName];
-            const sound = PreloadScene.sounds[soundtrack];
-            if (sound) {
-                sound.play({
-                    volume: 0.2,
-                });
-            }
-        }
+
+        if (!soundsEnabled) return;
+
+        const soundtrack = SOUNDS[soundName];
+        const sound = PreloadScene.sounds[soundtrack];
+
+        if (!sound) return;
+            
+        sound.play({
+            volume: 0.2,
+        });
     }
 
     playRandomSound(soundGroup) {
         const soundsEnabled = localStorage.getItem('soundsEnabled') === 'true';
         const randomSoundName = Phaser.Utils.Array.GetRandom(soundGroup);
-        if (soundsEnabled) {
-            const sound = PreloadScene.sounds[randomSoundName];
-            if (sound) {
-                sound.play();
-            }
-        }
+
+        if (!soundsEnabled) return;
+        const sound = PreloadScene.sounds[randomSoundName];
+        
+        if (!sound) return;
+        sound.play();
     }
 
     renderMenu() {
