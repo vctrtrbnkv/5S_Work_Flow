@@ -2,6 +2,7 @@ import { Scene } from 'phaser';
 
 import { SOUNDS } from '../constants/sounds/sounds.js';
 import PreloadScene from './PreloadScene.js';
+import { getSavedTheme, setTheme, applyTheme, getTheme } from '../gameConfig.js';
 
 const MESSAGES = {
     hello: 'Привет! Это игра по системе 5С! Давай сделаем наш офис более эффективным!',
@@ -83,6 +84,7 @@ export default class CustomScene extends Scene {
         const menu = document.getElementById('menu');
         const menuButtons = document.getElementById('menuButtons');
         const startButton = document.getElementById('startButton');
+        const aboutButton = document.getElementById('aboutButton');
         const settingsButton = document.getElementById('settingsButton');
 
         const lastScene = this.loadLastScene();
@@ -115,6 +117,11 @@ export default class CustomScene extends Scene {
             this.playSound('click');
         });
 
+        aboutButton.addEventListener('click', () => {
+            this.showAboutModal();
+            this.playSound('click');
+        });
+
         settingsButton.addEventListener('click', () => {
             this.showSettingsSidebar();
             this.playSound('click');
@@ -128,9 +135,13 @@ export default class CustomScene extends Scene {
         const closeButton = settingsSidebar.querySelector('.settings-sidebar__close-button');
         const musicToggle = settingsSidebar.querySelector('#musicToggle');
         const soundsToggle = settingsSidebar.querySelector('#soundsToggle');
+        const themeSelect = settingsSidebar.querySelector('#themeSelect');
 
         const savedMusicState = localStorage.getItem('musicEnabled');
         const savedSoundsState = localStorage.getItem('soundsEnabled');
+        const savedTheme = getSavedTheme();
+
+        themeSelect.value = savedTheme;
 
         if (savedMusicState !== false) {
             musicToggle.checked = savedMusicState === 'true';
@@ -176,6 +187,18 @@ export default class CustomScene extends Scene {
         soundsToggle.onchange = (e) => {
             localStorage.setItem('soundsEnabled', e.target.checked);
         };
+
+        themeSelect.onchange = (e) => {
+            const selectedTheme = e.target.value;
+            setTheme(selectedTheme);
+            this.playSound('click');
+        };
+
+        const reloadButton = document.getElementById('reloadButton');
+        reloadButton.onclick = () => {
+            this.playSound('click');
+            window.location.reload();
+        };
     }
 
     removeAllModals() {
@@ -187,33 +210,68 @@ export default class CustomScene extends Scene {
     }
 
     showScoresSidebar() {
-        const scoresSidebar = document.querySelector('.scores-sidebar');
-        const scoresTable = document.querySelector('.scores-table__body');
-        const returnButton = document.querySelector('.scores-sidebar__button');
+        const scoresSidebar = document.getElementById('scores-sidebar');
+        const returnToMenuButton = document.getElementById('return-to-menu');
 
-        scoresTable.innerHTML = '';
+        const level1Time = this.getLevelTime(1);
+        const level2Time = this.getLevelTime(2);
+        const level3Time = this.getLevelTime(3);
 
-        const times = JSON.parse(localStorage.getItem('levelTimes') || '{}');
+        const level1TimeElement = document.getElementById('level1-time');
+        const level2TimeElement = document.getElementById('level2-time');
+        const level3TimeElement = document.getElementById('level3-time');
 
-        const sortedLevels = Object.keys(times).sort((a, b) => parseInt(a) - parseInt(b));
-
-        sortedLevels.forEach(level => {
-            const row = document.createElement('div');
-            row.className = 'scores-table__row';
-            row.innerHTML = `
-                <div class="scores-table__cell">Уровень ${level}</div>
-                <div class="scores-table__cell">${times[level]}</div>
-            `;
-            scoresTable.appendChild(row);
-        });
+        level1TimeElement.textContent = level1Time || '--:--';
+        level2TimeElement.textContent = level2Time || '--:--';
+        level3TimeElement.textContent = level3Time || '--:--';
 
         scoresSidebar.classList.add('scores-sidebar--visible');
 
-        returnButton.onclick = () => {
+        returnToMenuButton.onclick = () => {
             scoresSidebar.classList.remove('scores-sidebar--visible');
-            this.clearLevelTimes();
-            window.location.reload();
+            this.renderMenu();
+            this.playSound('click');
         };
+    }
+
+    showAboutModal() {
+        const aboutModal = document.getElementById('aboutModal');
+        const closeAboutButton = document.querySelector('.aboutModal__close-button');
+
+        aboutModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        if (localStorage.getItem('soundsEnabled') === 'true') {
+            this.playSound('swoosh-modal');
+        }
+
+        closeAboutButton.onclick = () => {
+            this.closeAboutModal();
+        };
+
+        aboutModal.onclick = (e) => {
+            if (e.target === aboutModal) {
+                this.closeAboutModal();
+            }
+        };
+
+        const escapeHandler = (e) => {
+            if (e.key === 'Escape' && aboutModal.classList.contains('active')) {
+                this.closeAboutModal();
+                document.removeEventListener('keydown', escapeHandler);
+            }
+        };
+        document.addEventListener('keydown', escapeHandler);
+    }
+
+    closeAboutModal() {
+        const aboutModal = document.getElementById('aboutModal');
+        aboutModal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        if (localStorage.getItem('soundsEnabled') === 'true') {
+            this.playSound('swoosh-modal');
+        }
     }
 
     handlerSkipButton(SceneName) {
@@ -237,7 +295,7 @@ export default class CustomScene extends Scene {
                 this.stopwatchId = null;
             }
 
-            this.cameras.main.fadeOut(3000, 217, 217, 217);
+            this.fadeOutCamera(3000);
             this.playSound('click');
             window.location.reload();
         };
@@ -411,7 +469,7 @@ export default class CustomScene extends Scene {
         modalText.textContent = `Уровень пройден! Время: ${finalTime}`;
 
         modal.addEventListener('click', () => {
-            this.cameras.main.fadeOut(3000, 217, 217, 217);
+            this.fadeOutCamera(3000);
             this.scene.start(SceneName);
             modal.classList.remove('levelEndModal--open');
 
@@ -663,5 +721,26 @@ export default class CustomScene extends Scene {
 
     create() {
         this.setLevelNumber();
+    }
+
+    getThemeFadeColor() {
+        const currentTheme = getTheme();
+        return currentTheme === 'dark' ? 0x2a2a2a : 0xD9D9D9;
+    }
+
+    fadeInCamera(duration = 1000) {
+        const fadeColor = this.getThemeFadeColor();
+        const r = (fadeColor >> 16) & 255;
+        const g = (fadeColor >> 8) & 255;
+        const b = fadeColor & 255;
+        this.cameras.main.fadeIn(duration, r, g, b);
+    }
+
+    fadeOutCamera(duration = 1000) {
+        const fadeColor = this.getThemeFadeColor();
+        const r = (fadeColor >> 16) & 255;
+        const g = (fadeColor >> 8) & 255;
+        const b = fadeColor & 255;
+        this.cameras.main.fadeOut(duration, r, g, b);
     }
 }

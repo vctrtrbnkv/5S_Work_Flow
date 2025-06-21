@@ -12,7 +12,7 @@ export default class level1 extends CustomScene {
     create() {
         this.saveScene(this.scene.key);
 
-        this.cameras.main.fadeIn(1000, 217, 217, 217);
+        this.fadeInCamera(1000);
         this.removeAllModals();
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('hello');

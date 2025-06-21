@@ -1,0 +1,93 @@
+:root {
+    --background-color: #2a2a2a;
+
+    --circle-background-color: #ffffff;
+
+    --menu-button-primary-background-color: #5f4b80;
+    --menu-button-primary-hover-background-color: #6b568d;
+    --menu-button-primary-active-background-color: #533f72;
+
+    --menu-button-secondary-background-color: #7a659c;
+    --menu-button-secondary-hover-background-color: #846ea7;
+    --menu-button-secondary-active-background-color: #705b92;
+
+    --menu-button-tertiary-background-color: #8d7aac;
+    --menu-button-tertiary-hover-background-color: #9b88b9;
+    --menu-button-tertiary-active-background-color: #826fa0;
+
+    --menu-button-quaternary-background-color: #81b85d;
+    --menu-button-quaternary-hover-background-color: #89c064;
+    --menu-button-quaternary-active-background-color: #78ad55;
+
+    --sidebar-background-color: #242323;
+    --sidebar-burger-menu-span-background-color: #5f4b80;
+    --sidebar__button-background-color: #5f4b80;
+    --sidebar__button-hover-background-color: #6b568d;
+    --sidebar__button-active-background-color: #533f72;
+
+    --sidebar__task-title-color: #f5f5f5;
+    --sidebar__task-title-group-background-color: #2a2a2a;
+    --sidebar__task-title-marker-color: #5f4b80;
+    --sidebar__task-item-color: #f5f5f5;
+    --sidebar__task-item-done-color: #a4a4a4;
+
+    --helloModal-background-color: #5f4b80;
+    --helloModal-maskot-border-color: #5f4b80;
+
+    --levelEndModal-background-color: #242323;
+    --levelEndModal-text-color: #f5f5f5;
+    --levelEndModal-header-background-color: #2a2a2a;
+    --levelEndModal-button-background-color: #2a2a2a;
+    --levelEndModal-button-color: #ffffff;
+    --levelEndModal-button-hover-background-color: #3b3b3b;
+    --levelEndModal-button-active-background-color: #1d1c1c;
+
+    --stopwatch-background-color: #5f4b80;
+    --stopwatch-color: #f5f5f5;
+
+    --scores-sidebar-background-color: #2a2a2a;
+    --scores-sidebar-title-color: #f5f5f5;
+    --scores-table-background-color: #242323;
+    --scores-table-border-color: #5f4b80;
+    --scores-table-header-background-color: #5f4b80;
+    --scores-table-row-border-color: #626367;
+    --scores-table-cell-color: #f5f5f5;
+
+    --scores-sidebar__button-background-color: #5f4b80;
+    --scores-sidebar__button-hover-background-color: #6b568d;
+    --scores-sidebar__button-active-background-color: #533f72;
+
+    --settings-sidebar-background-color: #242323;
+    --settings-sidebar-header-background-color: #2e2e2e;
+    --settings-sidebar-title-color: #7a659c;
+    --settings-sidebar-close-button-color: #5f4b80;
+    --settings-sidebar-close-button-hover-background-color: #2a2a2a;
+
+    --settings-group-title-color: #7a659c;
+    --settings-control-label-color: #f5f5f5;
+    --settings-control-toggle-background-color: #606060;
+    --settings-control-toggle-checked-background-color: #5f4b80;
+    --settings-control-select-color: #f5f5f5;
+    --settings-control-select-background-color: #2a2a2a;
+    --settings-control-select-border-color: #3a3a3a;
+    --settings-control-select-hover-border-color: #7a659c;
+    --settings-control-select-focus-border-color: #5f4b80;
+
+    --settings-notification-background-color: #2a2a2a;
+    --settings-notification-border-color: #3a3a3a;
+    --settings-notification-text-color: #b0b0b0;
+    --settings-notification-button-background-color: #5f4b80;
+    --settings-notification-button-color: #ffffff;
+    --settings-notification-button-hover-background-color: #6b568d;
+    --settings-notification-button-active-background-color: #533f72;
+
+    --aboutModal-background-color: #242323;
+    --aboutModal-border-color: #5f4b80;
+    --aboutModal-title-color: #5f4b80;
+    --aboutModal-close-button-color: #5f4b80;
+    --aboutModal-close-button-hover-background-color: #2a2a2a;
+    --aboutModal-color: #f5f5f5;
+    --aboutModal__description--goals-background-color: #2a2a2a;
+    --aboutModal__description--goals-border-left-color: #5f4b80;
+    --aboutModal__principles-list-background-color: #2a2a2a;
+}

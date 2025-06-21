@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="figuresBig.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./light.css" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="./dark.css" media="(prefers-color-scheme: dark)" />
     <title>5S WORK FLOW</title>
   </head>
 
@@ -19,15 +21,9 @@
       <h1 class="menu__title">5S WORK FLOW</h1>
 
       <div id="menuButtons">
-        <button id="startButton" class="menu__button menu__button--primary">
-          Новая игра
-        </button>
-        <button id="aboutButton" class="menu__button menu__button--secondary" onclick="window.location.href='about.html'">
-          Об игре
-        </button>
-        <button id="settingsButton" class="menu__button menu__button--tertiary">
-          Настройки
-        </button>
+        <button id="startButton" class="menu__button menu__button--primary">Новая игра</button>
+        <button id="aboutButton" class="menu__button menu__button--secondary">Об игре</button>
+        <button id="settingsButton" class="menu__button menu__button--tertiary">Настройки</button>
       </div>
     </aside>
 
@@ -53,23 +49,51 @@
         <h2 class="settings-sidebar__title">Настройки</h2>
         <button class="settings-sidebar__close-button">×</button>
       </div>
-      
+
       <div class="settings-sidebar__content">
         <div class="settings-group">
           <h3 class="settings-group__title">Звук</h3>
           <div class="settings-control">
             <label class="settings-control__label">Фоновая музыка</label>
             <div class="settings-control__toggle">
-              <input type="checkbox" id="musicToggle" class="settings-control__checkbox" checked="false">
+              <input
+                type="checkbox"
+                id="musicToggle"
+                class="settings-control__checkbox"
+                checked="false"
+              />
               <label for="musicToggle" class="settings-control__toggle-label"></label>
             </div>
           </div>
           <div class="settings-control">
             <label class="settings-control__label">Звуки взаимодействия</label>
             <div class="settings-control__toggle">
-              <input type="checkbox" id="soundsToggle" class="settings-control__checkbox" checked="false">
+              <input
+                type="checkbox"
+                id="soundsToggle"
+                class="settings-control__checkbox"
+                checked="false"
+              />
               <label for="soundsToggle" class="settings-control__toggle-label"></label>
             </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3 class="settings-group__title">Внешний вид</h3>
+          <div class="settings-control">
+            <label class="settings-control__label">Тема</label>
+            <select id="themeSelect" class="settings-control__select">
+              <option value="system">Системная</option>
+              <option value="light">Светлая</option>
+              <option value="dark">Тёмная</option>
+            </select>
+          </div>
+          <div class="settings-notification">
+            <p class="settings-notification__text">
+              Для применения темы необходимо перезагрузить страницу
+            </p>
+            <button id="reloadButton" class="settings-notification__button">Перезагрузить</button>
           </div>
         </div>
       </div>
@@ -116,11 +140,7 @@
       </div>
       <div class="levelEndModal__content">
         <div class="levelEndModal__imageWrapper">
-          <img
-            class="levelEndModal__image"
-            src="modalFigure.png"
-            alt="figures"
-          />
+          <img class="levelEndModal__image" src="modalFigure.png" alt="figures" />
         </div>
         <div class="levelEndModal__text">Уровень пройден!</div>
       </div>
@@ -129,6 +149,81 @@
       </div>
     </aside>
 
-    <div id="gameOver" class="gameOver"></div>
+    <aside id="aboutModal" class="aboutModal">
+      <div class="aboutModal__header">
+        <h2 class="aboutModal__title">Система 5S</h2>
+        <button class="aboutModal__close-button">×</button>
+      </div>
+      <div class="aboutModal__content">
+        <p class="aboutModal__description">
+          5S — это система организации рабочего пространства, разработанная в Японии. Название
+          происходит от пяти японских слов, начинающихся на букву "S". Эта система помогает создать
+          эффективное, безопасное и организованное рабочее пространство.
+        </p>
+
+        <p class="aboutModal__description aboutModal__description--goals">
+          Цель этой игры — помочь освоить принципы системы 5S в интерактивной форме. Играя, вы
+          научитесь применять эти принципы на практике, что поможет создать более эффективное и
+          организованное рабочее пространство.
+        </p>
+
+        <div class="aboutModal__principles-list">
+          <div class="aboutModal__principle-item">
+            <div class="aboutModal__principle-number aboutModal__principle-1">1S</div>
+            <div class="aboutModal__principle-content">
+              <h3 class="aboutModal__principle-title">Сортировка (Seiri)</h3>
+              <p class="aboutModal__principle-description">
+                Разделение вещей на нужные и ненужные, избавление от ненужных предметов. Это
+                помогает освободить рабочее пространство и сделать его более эффективным.
+              </p>
+            </div>
+          </div>
+
+          <div class="aboutModal__principle-item">
+            <div class="aboutModal__principle-number aboutModal__principle-2">2S</div>
+            <div class="aboutModal__principle-content">
+              <h3 class="aboutModal__principle-title">Соблюдение порядка (Seiton)</h3>
+              <p class="aboutModal__principle-description">
+                Рациональное размещение нужных предметов, организация их хранения. Каждая вещь
+                должна иметь свое место, а каждое место должно быть обозначено.
+              </p>
+            </div>
+          </div>
+
+          <div class="aboutModal__principle-item">
+            <div class="aboutModal__principle-number aboutModal__principle-3">3S</div>
+            <div class="aboutModal__principle-content">
+              <h3 class="aboutModal__principle-title">Содержание в чистоте (Seiso)</h3>
+              <p class="aboutModal__principle-description">
+                Поддержание чистоты и порядка, регулярная уборка рабочего места. Это помогает
+                выявить проблемы на ранних стадиях и поддерживать безопасность.
+              </p>
+            </div>
+          </div>
+
+          <div class="aboutModal__principle-item">
+            <div class="aboutModal__principle-number aboutModal__principle-4">4S</div>
+            <div class="aboutModal__principle-content">
+              <h3 class="aboutModal__principle-title">Стандартизация (Seiketsu)</h3>
+              <p class="aboutModal__principle-description">
+                Создание и соблюдение стандартов организации рабочего пространства. Это обеспечивает
+                единообразие и эффективность работы.
+              </p>
+            </div>
+          </div>
+
+          <div class="aboutModal__principle-item">
+            <div class="aboutModal__principle-number aboutModal__principle-5">5S</div>
+            <div class="aboutModal__principle-content">
+              <h3 class="aboutModal__principle-title">Совершенствование (Shitsuke)</h3>
+              <p class="aboutModal__principle-description">
+                Воспитание привычки соблюдать установленные правила и процедуры. Это превращает 5S
+                из набора правил в образ жизни.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
   </body>
 </html>
