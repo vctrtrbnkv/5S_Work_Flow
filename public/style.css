@@ -322,7 +322,7 @@ input {
 }
 
 .sidebar__task-list--open {
-  max-height: 500px;
+  max-height: 1500px;
 }
 
 .sidebar__task-item {

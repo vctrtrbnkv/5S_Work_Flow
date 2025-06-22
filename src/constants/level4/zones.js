@@ -1,0 +1,32 @@
+export const ALL_ZONES = [
+    {
+        key: 'boxRequired',
+        imageName: 'boxRequired.png',
+        name: 'boxRequired',
+        x: 184,
+        y: 622,
+        targetKey: ['paperStand', 'pencilStand', 'monoblock', 'keyboard', 'pen', 'computerMouse', 'smartphone'],
+        scale: 0.5,
+        description: 'Необходимое',
+    },
+    {
+        key: 'boxNeeded',
+        imageName: 'boxNeeded.png',
+        name: 'boxNeeded',
+        x: 314,
+        y: 682,
+        targetKey: ['plant', 'documentFolder', 'packOfPaper', 'stackOfPapers', 'yellowHighlighter', 'deskCalendar', 'vitamins', 'stackOfBooks', 'photoFrame', 'calculator', 'screwdriver', 'scotchTape', 'glue', 'glueStick', 'tearOffNotebook', 'book', 'cup', 'eraser', 'glassOfWater', 'key', 'loupe', 'nuts', 'paperClips', 'pills', 'pin', 'pinkHighlighter', 'rubiksСube', 'ruler', 'scissors', 'screw', 'sharpener', 'stapler', 'stationeryKnife', 'stickyNotes'],
+        scale: 0.5,
+        description: 'Нужное',
+    },
+    {
+        key: 'wasteBasket',
+        imageName: 'wasteBasket.png',
+        name: 'wasteBasket',
+        x: 446,
+        y: 656,
+        targetKey: ['bottle', 'foodInABox', 'appleCore', 'bracelets', 'brokenCable', 'can', 'cashReceipt', 'coffeeCup', 'crumpledBallOfPaper', 'medicalMask', 'teaBag'],
+        scale: 0.3,
+        description: 'Мусорное ведро',
+    },
+];

@@ -15,7 +15,7 @@ export default class level3 extends CustomScene {
         this.fadeInCamera(1000);
         this.renderSidebar(LIST_OF_TASKS);
         this.renderHelloModal('level3');
-        this.handlerSkipButton('GameOverScene');
+        this.handlerSkipButton('level4');
         this.handlerToMenuButton();
         this.handlerSettingsButton();
 
@@ -63,7 +63,7 @@ export default class level3 extends CustomScene {
                 gameObject.input.enabled = false;
 
                 this.markItemAsDone(gameObject.name, sidebar, LIST_OF_TASKS);
-                this.endOfGameCheck(LIST_OF_TASKS, 'GameOverScene');
+                this.endOfGameCheck(LIST_OF_TASKS, 'level4');
             }
         });
     }

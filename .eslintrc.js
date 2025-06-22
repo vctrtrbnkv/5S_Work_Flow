@@ -14,7 +14,7 @@ module.exports = {
     rules: {
         "no-unused-vars": "off", // Disabled for Phaser event handlers
         "semi": ["error", "always"],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
         "indent": ["error", 4],
         "comma-dangle": ["error", "always-multiline"],
         "object-curly-spacing": ["error", "always"],

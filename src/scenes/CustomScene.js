@@ -8,6 +8,7 @@ const MESSAGES = {
     hello: 'Привет! Это игра по системе 5С! Давай сделаем наш офис более эффективным!',
     level2: 'Отлично! Теперь давай расставим нужные предметы по местам! Кликай на коробку, чтобы достать предметы.',
     level3: 'На рабочем месте порядок! Остальное отнесем на склад!',
+    level4: 'Тренировка закончена! Пора применить полученные знания!',
 };
 
 export default class CustomScene extends Scene {
@@ -216,14 +217,17 @@ export default class CustomScene extends Scene {
         const level1Time = this.getLevelTime(1);
         const level2Time = this.getLevelTime(2);
         const level3Time = this.getLevelTime(3);
+        const level4Time = this.getLevelTime(4);
 
         const level1TimeElement = document.getElementById('level1-time');
         const level2TimeElement = document.getElementById('level2-time');
         const level3TimeElement = document.getElementById('level3-time');
+        const level4TimeElement = document.getElementById('level4-time');
 
         level1TimeElement.textContent = level1Time || '--:--';
         level2TimeElement.textContent = level2Time || '--:--';
         level3TimeElement.textContent = level3Time || '--:--';
+        level4TimeElement.textContent = level4Time || '--:--';
 
         scoresSidebar.classList.add('scores-sidebar--visible');
 
